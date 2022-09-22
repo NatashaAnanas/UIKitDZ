@@ -39,4 +39,24 @@ class ViewControllerTwo: UIViewController {
     func createButton() {
         billButton.layer.cornerRadius = 22
     }
+    
+    @IBAction func billButtonAction(_ sender: Any) {
+        let alertControlle = UIAlertController(title: .none, message: "Выставить счет", preferredStyle: .alert)
+        
+        let alertAction = UIAlertAction(title: "Чек", style: .default) { _ in
+            
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            guard let newVC = storyboard.instantiateViewController(
+                withIdentifier: "vc3"
+            ) as? ViewControllerThree else { return }
+            self.present(newVC, animated: true)
+        }
+        
+        let alertActionCancel = UIAlertAction(title: "Cancel", style: .cancel) { _ in
+            
+        }
+        alertControlle.addAction(alertAction)
+        alertControlle.addAction(alertActionCancel)
+        present(alertControlle, animated: true)
+    }
 }

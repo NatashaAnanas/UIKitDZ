@@ -170,7 +170,7 @@
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Выставить счет"/>
                                 <connections>
-                                    <segue destination="0Ty-ot-OYv" kind="show" id="TfA-Oe-Tcy"/>
+                                    <action selector="billButtonAction:" destination="Pz7-Bp-CNt" eventType="touchUpInside" id="wOl-eY-xmt"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Cafe Mario" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gi6-pB-MH0">
@@ -184,7 +184,7 @@
                         <viewLayoutGuide key="safeArea" id="ygx-S6-3KL"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="wFn-dS-pBZ"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="billButton" destination="uJH-qT-YeQ" id="sRt-Yt-EpN"/>
                         <outlet property="guestsNumber" destination="w0X-ba-XnD" id="xSK-Cs-bmK"/>
@@ -202,9 +202,9 @@
         <!--View Controller Three-->
         <scene sceneID="5eB-Ut-fS3">
             <objects>
-                <viewController id="0Ty-ot-OYv" customClass="ViewControllerThree" customModule="UIKitDZ" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="vc3" id="0Ty-ot-OYv" customClass="ViewControllerThree" customModule="UIKitDZ" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Msg-1P-B3p">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Чек" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1r2-ys-NeW">

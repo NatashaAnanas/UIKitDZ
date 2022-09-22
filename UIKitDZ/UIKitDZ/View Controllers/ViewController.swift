@@ -23,6 +23,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         createButton()
+        passwordTextField.isSecureTextEntry = true
     }
     
     @IBAction func buttonSingAction(_ sender: Any) {
