@@ -15,7 +15,7 @@ class ViewControllerThree: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        billButton.layer.cornerRadius = 20
     }
     
     @IBAction func billButtonAction(_ sender: Any) {
