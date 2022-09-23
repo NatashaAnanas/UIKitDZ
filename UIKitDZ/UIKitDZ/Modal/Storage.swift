@@ -6,7 +6,7 @@
 //
 
 import Foundation
-/// Hello
-struct Model {
+/// Storage
+struct Storage {
     let hello = "hello"
 }
