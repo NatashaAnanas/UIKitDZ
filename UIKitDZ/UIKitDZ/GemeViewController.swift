@@ -6,8 +6,8 @@
 //
 
 import UIKit
-/// ViewController
-class ViewController: UIViewController {
+/// GemeViewController - экран с кнопкой
+final class GemeViewController: UIViewController {
     
     let helloLabel: UILabel = {
         let label = UILabel()
@@ -30,16 +30,22 @@ class ViewController: UIViewController {
         return button
     }()
     
-    let model = Model()
+    let storage = Storage()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.backgroundColor = .black
-        
+        viewSettings()
         createButton()
         createLabel()
-        
+        createAction()
+    }
+    
+    func viewSettings() {
+        self.view.backgroundColor = .black
+    }
+    
+    func createAction() {
         helloButton.addTarget(self, action: #selector(helloButtonAction(sender: )), for: .touchUpInside)
     }
     
@@ -69,7 +75,7 @@ class ViewController: UIViewController {
         ) { _ in
             let text = alertController.textFields?.first?.text ?? ""
             if text == "leohl" {
-                self.helloLabel.text = self.model.hello
+                self.helloLabel.text = self.storage.hello
             } else {
                 self.helloLabel.text = String(text.reversed())
             }

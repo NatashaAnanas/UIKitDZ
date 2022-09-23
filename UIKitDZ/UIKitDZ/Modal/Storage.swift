@@ -6,7 +6,7 @@
 //
 
 import Foundation
-/// Storage
+/// Storage - хранит данные
 struct Storage {
     let hello = "hello"
 }
