@@ -30,9 +30,9 @@ final class GameViewController: UIViewController {
         borderWidth: 5)
     
     let helloLabel = UILabel(numberOfLines: 0, textColor: .white, font: .systemFont(ofSize: 25))
-    let labelForAddiction = UILabel(numberOfLines: 0, textColor: .white, font: .systemFont(ofSize: 20))
-    let labelForGuess = UILabel(numberOfLines: 0, textColor: .white, font: .systemFont(ofSize: 18))
-    let labelForRevers = UILabel(numberOfLines: 0, textColor: .white, font: .systemFont(ofSize: 20))
+    let addictionLabel = UILabel(numberOfLines: 0, textColor: .white, font: .systemFont(ofSize: 20))
+    let guessLabel = UILabel(numberOfLines: 0, textColor: .white, font: .systemFont(ofSize: 18))
+    let reversLabel = UILabel(numberOfLines: 0, textColor: .white, font: .systemFont(ofSize: 20))
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,11 +44,11 @@ final class GameViewController: UIViewController {
         
         addictionButton.addTarget(self, action: #selector(addictionButtonAction(sender: )), for: .touchUpInside)
         guessNumberButton.addTarget(self, action: #selector(guessNumberButtonAction(sender: )), for: .touchUpInside)
-        reversedWordButton.addTarget(self, action: #selector(reverseActionButton(sender:)), for: .touchUpInside)
+        reversedWordButton.addTarget(self, action: #selector(reverseButtonAction(sender:)), for: .touchUpInside)
     }
     
     override func viewDidAppear(_ animated: Bool) {
-//        super.viewDidAppear(true)
+        super.viewDidAppear(true)
         
         createAlert()
     }
@@ -90,14 +90,14 @@ final class GameViewController: UIViewController {
         helloLabel.center.x = self.view.center.x
         view.addSubview(helloLabel)
         
-        labelForAddiction.frame = CGRect(x: 70, y: 300, width: 200, height: 60)
-        view.addSubview(labelForAddiction)
+        addictionLabel.frame = CGRect(x: 70, y: 300, width: 200, height: 60)
+        view.addSubview(addictionLabel)
         
-        labelForGuess.frame = CGRect(x: 70, y: 470, width: 250, height: 80)
-        view.addSubview(labelForGuess)
+        guessLabel.frame = CGRect(x: 70, y: 470, width: 250, height: 80)
+        view.addSubview(guessLabel)
         
-        labelForRevers.frame = CGRect(x: 70, y: 640, width: 250, height: 80)
-        view.addSubview(labelForRevers)
+        reversLabel.frame = CGRect(x: 70, y: 640, width: 250, height: 80)
+        view.addSubview(reversLabel)
     }
     
     @objc func addictionButtonAction(sender: UIButton) {
@@ -115,7 +115,7 @@ final class GameViewController: UIViewController {
                 let firstTextFieldInt = Int(firstTextField) ?? 0
                 let secondTextFieldInt = Int(secondTextField) ?? 0
                 
-                self.labelForAddiction.text = "Ответ: \(firstTextFieldInt + secondTextFieldInt))"
+                self.addictionLabel.text = "Ответ: \(firstTextFieldInt + secondTextFieldInt))"
             })
         
         alertController.addTextField()
@@ -140,9 +140,9 @@ final class GameViewController: UIViewController {
             let number = Int(alertControllerForGuess.textFields?.first?.text ?? "0")
             
             if value == number {
-                self.labelForGuess.text = "Верно! Я загадал число \(value)"
+                self.guessLabel.text = "Верно! Я загадал число \(value)"
             } else {
-                self.labelForGuess.text = "Неверно! Я загадал число \(value)"
+                self.guessLabel.text = "Неверно! Я загадал число \(value)"
             }
         })
         
@@ -150,7 +150,7 @@ final class GameViewController: UIViewController {
         present(alertControllerForGuess, animated: true)
     }
     
-    @objc func reverseActionButton (sender: UIButton) {
+    @objc func reverseButtonAction (sender: UIButton) {
         let alertControllerReverse = UIAlertController(
             title: "СЛОВО НАОБОРОТ",
             message: "Введите слово",
@@ -162,7 +162,7 @@ final class GameViewController: UIViewController {
             var word = alertControllerReverse.textFields?.first?.text ?? "пусто"
             word = String(word.reversed())
             
-            self.labelForRevers.text = "Перевёртыш: \(String(word.capitalized))"
+            self.reversLabel.text = "Перевёртыш: \(String(word.capitalized))"
         })
         alertControllerReverse.addAction(alertControllerActionReverse)
         present(alertControllerReverse, animated: true)
