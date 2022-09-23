@@ -24,16 +24,3 @@ extension UIButton {
     
     }
 }
-
-extension UILabel {
-    convenience init(
-        numberOfLines: Int,
-        textColor: UIColor,
-        font: UIFont
-    ) {
-        self.init()
-        self.numberOfLines = numberOfLines
-        self.textColor = textColor
-        self.font = font
-    }
-}

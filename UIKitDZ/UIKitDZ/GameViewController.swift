@@ -6,8 +6,8 @@
 //
 
 import UIKit
-/// ViewController
-class ViewController: UIViewController {
+/// GameViewController - экран с играми
+final class GameViewController: UIViewController {
     
     let addictionButton = UIButton(
         titel: "Сложить",
@@ -29,12 +29,11 @@ class ViewController: UIViewController {
         borderColor: UIColor.green.cgColor,
         borderWidth: 5)
     
-    let labelHello = UILabel(numberOfLines: 0, textColor: .white, font: .systemFont(ofSize: 25))
+    let helloLabel = UILabel(numberOfLines: 0, textColor: .white, font: .systemFont(ofSize: 25))
     let labelForAddiction = UILabel(numberOfLines: 0, textColor: .white, font: .systemFont(ofSize: 20))
     let labelForGuess = UILabel(numberOfLines: 0, textColor: .white, font: .systemFont(ofSize: 18))
     let labelForRevers = UILabel(numberOfLines: 0, textColor: .white, font: .systemFont(ofSize: 20))
     
-    @IBOutlet weak var anasasImage: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -49,10 +48,12 @@ class ViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+//        super.viewDidAppear(true)
+        
         createAlert()
     }
     
-    func createButtons () {
+    func createButtons() {
         
         addictionButton.frame = CGRect(x: 60, y: 190, width: 300, height: 100)
         view.addSubview(addictionButton)
@@ -64,7 +65,7 @@ class ViewController: UIViewController {
         view.addSubview(reversedWordButton)
     }
     
-    func createAlert () {
+    func createAlert() {
         
         let alertController = UIAlertController(title: "Привет!", message: "Введи свое имя", preferredStyle: .alert)
         
@@ -73,9 +74,9 @@ class ViewController: UIViewController {
             let nameOfUser = alertController.textFields?.first?.text
 
             if let nameUser = nameOfUser, nameUser.count > 0 {
-                self.labelHello.text = "Привет, \(nameUser.capitalized)!"
+                self.helloLabel.text = "Привет, \(nameUser.capitalized)!"
             } else {
-                self.labelHello.text = "Привет, Игрок!"
+                self.helloLabel.text = "Привет, Игрок!"
             }
         }
         alertController.addAction(alertAction)
@@ -83,11 +84,11 @@ class ViewController: UIViewController {
         alertController.addTextField()
     }
     
-    func createLabels () {
+    func createLabels() {
         
-        labelHello.frame = CGRect(x: 0, y: 95, width: 200, height: 60)
-        labelHello.center.x = self.view.center.x
-        view.addSubview(labelHello)
+        helloLabel.frame = CGRect(x: 0, y: 95, width: 200, height: 60)
+        helloLabel.center.x = self.view.center.x
+        view.addSubview(helloLabel)
         
         labelForAddiction.frame = CGRect(x: 70, y: 300, width: 200, height: 60)
         view.addSubview(labelForAddiction)
@@ -99,17 +100,17 @@ class ViewController: UIViewController {
         view.addSubview(labelForRevers)
     }
     
-    @objc func addictionButtonAction (sender: UIButton) {
+    @objc func addictionButtonAction(sender: UIButton) {
         
-        let alertControllerforButton = UIAlertController(
+        let alertController = UIAlertController(
             title: "СЛОЖЕНИЕ",
             message: "Введи числа ",
             preferredStyle: .alert)
         
-        let alertActionforButton = UIAlertAction(
+        let alertAction = UIAlertAction(
             title: "Реши", style: .cancel, handler: { _ in
-                let firstTextField = alertControllerforButton.textFields?.first?.text ?? "0"
-                let secondTextField = alertControllerforButton.textFields?.last?.text ?? "0"
+                let firstTextField = alertController.textFields?.first?.text ?? "0"
+                let secondTextField = alertController.textFields?.last?.text ?? "0"
 
                 let firstTextFieldInt = Int(firstTextField) ?? 0
                 let secondTextFieldInt = Int(secondTextField) ?? 0
@@ -117,16 +118,16 @@ class ViewController: UIViewController {
                 self.labelForAddiction.text = "Ответ: \(firstTextFieldInt + secondTextFieldInt))"
             })
         
-        alertControllerforButton.addTextField()
-        alertControllerforButton.addTextField()
+        alertController.addTextField()
+        alertController.addTextField()
         
-        alertControllerforButton.textFields?.first?.placeholder = "0"
-        alertControllerforButton.textFields?[1].placeholder = "0"
-        alertControllerforButton.addAction(alertActionforButton)
-        present(alertControllerforButton, animated: true)
+        alertController.textFields?.first?.placeholder = "0"
+        alertController.textFields?[1].placeholder = "0"
+        alertController.addAction(alertAction)
+        present(alertController, animated: true)
     }
     
-    @objc func guessNumberButtonAction (sender: UIButton) {
+    @objc func guessNumberButtonAction(sender: UIButton) {
         let alertControllerForGuess = UIAlertController(
             title: "УГАДАЙ ЧИСЛО",
             message: "Я загадал число от 1 до 5",
