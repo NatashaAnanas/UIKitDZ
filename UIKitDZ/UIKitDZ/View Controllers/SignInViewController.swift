@@ -6,8 +6,8 @@
 //
 
 import UIKit
-/// ViewController
-class ViewController: UIViewController {
+/// SignInViewController
+class SignInViewController: UIViewController {
     
     var storage = Storage()
     
@@ -39,7 +39,7 @@ class ViewController: UIViewController {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             guard let newVC = storyboard.instantiateViewController(
                 withIdentifier: "vc2"
-            ) as? ViewControllerTwo else { return }
+            ) as? BookingViewController else { return }
             self.present(newVC, animated: true)
         } else {
             errorLabel.text = "Введен неверный логин или пароль"

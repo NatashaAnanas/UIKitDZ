@@ -6,8 +6,8 @@
 //
 
 import UIKit
-/// ViewControllerTwo
-class ViewControllerTwo: UIViewController {
+/// BookingViewController
+class BookingViewController: UIViewController {
 
     @IBOutlet weak var nameLabel: UITextField!
     
@@ -48,7 +48,7 @@ class ViewControllerTwo: UIViewController {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             guard let newVC = storyboard.instantiateViewController(
                 withIdentifier: "vc3"
-            ) as? ViewControllerThree else { return }
+            ) as? BillViewController else { return }
             self.present(newVC, animated: true)
         }
         

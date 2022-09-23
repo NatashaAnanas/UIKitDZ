@@ -6,8 +6,8 @@
 //
 
 import UIKit
-/// ViewControllerThree
-class ViewControllerThree: UIViewController {
+/// BillViewController
+class BillViewController: UIViewController {
 
     @IBOutlet weak var billButton: UIButton!
     
