@@ -150,7 +150,7 @@ final class GameViewController: UIViewController {
         present(alertControllerForGuess, animated: true)
     }
     
-    @objc func reverseButtonAction (sender: UIButton) {
+    @objc func reverseButtonAction(sender: UIButton) {
         let alertControllerReverse = UIAlertController(
             title: "СЛОВО НАОБОРОТ",
             message: "Введите слово",
