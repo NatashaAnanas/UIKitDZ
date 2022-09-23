@@ -6,21 +6,15 @@
 //
 
 import UIKit
-/// BookingViewController
+/// BookingViewController - ввод данных пользователя
 class BookingViewController: UIViewController {
 
     @IBOutlet weak var nameLabel: UITextField!
-    
     @IBOutlet weak var guestsNumber: UITextField!
-    
     @IBOutlet weak var numberOfTable: UITextField!
-    
     @IBOutlet weak var billButton: UIButton!
-    
     @IBOutlet weak var switchThree: UISwitch!
-    
     @IBOutlet weak var switchTwo: UISwitch!
-    
     @IBOutlet weak var switchOne: UISwitch!
     
     override func viewDidLoad() {

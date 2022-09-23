@@ -6,7 +6,7 @@
 //
 
 import Foundation
-/// Storage
+/// Storage - хранит email и пароль пользователя
 struct Storage {
     var infoUsers = ["ananas@mail.ru": "1234", "kannat7@mail.ru": "qwer"]
 }

@@ -6,20 +6,16 @@
 //
 
 import UIKit
-/// SignInViewController
+/// SignInViewController - экран регистрации
 class SignInViewController: UIViewController {
     
-    var storage = Storage()
-    
     @IBOutlet weak var emailTextField: UITextField!
-    
     @IBOutlet weak var passwordTextField: UITextField!
-    
     @IBOutlet weak var singInButton: UIButton!
-    
     @IBOutlet weak var errorLabel: UILabel!
-    
     @IBOutlet weak var eyeButton: UIButton!
+    
+    var storage = Storage()
     
     override func viewDidLoad() {
         super.viewDidLoad()
