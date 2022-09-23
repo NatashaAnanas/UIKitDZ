@@ -6,7 +6,7 @@
 //
 
 import Foundation
-/// Model
+/// Storage
 struct Storage {
     var infoUsers = ["ananas@mail.ru": "1234", "kannat7@mail.ru": "qwer"]
 }
