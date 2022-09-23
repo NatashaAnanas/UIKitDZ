@@ -35,30 +35,31 @@ final class GemeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        createUI()
         viewSettings()
-        createButton()
-        createLabel()
-        createAction()
     }
     
     func viewSettings() {
         self.view.backgroundColor = .black
     }
     
-    func createAction() {
-        helloButton.addTarget(self, action: #selector(helloButtonAction(sender: )), for: .touchUpInside)
-    }
-    
-    func createButton() {
-        helloButton.frame = CGRect(x: 0, y: 0, width: 200, height: 200)
-        helloButton.center = view.center
-        view.addSubview(helloButton)
-    }
-    
-    func createLabel() {
-        helloLabel.frame = CGRect(x: 0, y: 250, width: 150, height: 50)
-        helloLabel.center.x = view.center.x
-        view.addSubview(helloLabel)
+    func createUI() {
+        
+        func createButton() {
+            helloButton.frame = CGRect(x: 0, y: 0, width: 200, height: 200)
+            helloButton.center = view.center
+            view.addSubview(helloButton)
+        }
+        
+        func createLabel() {
+            helloLabel.frame = CGRect(x: 0, y: 250, width: 150, height: 50)
+            helloLabel.center.x = view.center.x
+            view.addSubview(helloLabel)
+        }
+        
+        func createAction() {
+            helloButton.addTarget(self, action: #selector(helloButtonAction(sender: )), for: .touchUpInside)
+        }
     }
     
     @objc func helloButtonAction(sender: UIButton) {
