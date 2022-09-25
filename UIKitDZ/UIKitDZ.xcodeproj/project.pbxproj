@@ -11,7 +11,7 @@
 		4102F4C428DDECA1000E3BBC /* AddPersonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4102F4C328DDECA0000E3BBC /* AddPersonViewController.swift */; };
 		4102F4C628DDEED0000E3BBC /* иконка.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 4102F4C528DDEED0000E3BBC /* иконка.jpeg */; };
 		4102F4C828DE1866000E3BBC /* InfoUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4102F4C728DE1866000E3BBC /* InfoUsers.swift */; };
-		4102F4CB28DEE829000E3BBC /* Extension + UIPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4102F4CA28DEE829000E3BBC /* Extension + UIPickerView.swift */; };
+		4102F4CB28DEE829000E3BBC /* Extention + UIPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4102F4CA28DEE829000E3BBC /* Extention + UIPickerView.swift */; };
 		4115016828DF792E003B024B /* me.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4115016728DF792E003B024B /* me.jpg */; };
 		4115016B28E04197003B024B /* Настя.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 4115016928E04197003B024B /* Настя.jpeg */; };
 		4115016C28E04197003B024B /* Саша.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 4115016A28E04197003B024B /* Саша.jpeg */; };
@@ -30,7 +30,7 @@
 		4102F4C328DDECA0000E3BBC /* AddPersonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPersonViewController.swift; sourceTree = "<group>"; };
 		4102F4C528DDEED0000E3BBC /* иконка.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "иконка.jpeg"; sourceTree = "<group>"; };
 		4102F4C728DE1866000E3BBC /* InfoUsers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoUsers.swift; sourceTree = "<group>"; };
-		4102F4CA28DEE829000E3BBC /* Extension + UIPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + UIPickerView.swift"; sourceTree = "<group>"; };
+		4102F4CA28DEE829000E3BBC /* Extention + UIPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extention + UIPickerView.swift"; sourceTree = "<group>"; };
 		4115016728DF792E003B024B /* me.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = me.jpg; sourceTree = "<group>"; };
 		4115016928E04197003B024B /* Настя.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Настя.jpeg"; sourceTree = "<group>"; };
 		4115016A28E04197003B024B /* Саша.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Саша.jpeg"; sourceTree = "<group>"; };
@@ -69,7 +69,7 @@
 		4102F4C928DEE7F9000E3BBC /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				4102F4CA28DEE829000E3BBC /* Extension + UIPickerView.swift */,
+				4102F4CA28DEE829000E3BBC /* Extention + UIPickerView.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -219,7 +219,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4102F4CB28DEE829000E3BBC /* Extension + UIPickerView.swift in Sources */,
+				4102F4CB28DEE829000E3BBC /* Extention + UIPickerView.swift in Sources */,
 				4102F4C828DE1866000E3BBC /* InfoUsers.swift in Sources */,
 				418D877628DB8387006178FD /* SignInViewController.swift in Sources */,
 				418D877228DB8387006178FD /* AppDelegate.swift in Sources */,

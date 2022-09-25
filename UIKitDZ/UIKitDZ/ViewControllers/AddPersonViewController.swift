@@ -152,13 +152,13 @@ final class AddPersonViewController: UIViewController, UITextFieldDelegate {
             let text = alertController.textFields?.first?.text ?? ""
             self.instagramTextField.text = text
         }
-        let alertCanсelAction = UIAlertAction(title: "Отмена", style: .cancel)
+        let alertCancelAction = UIAlertAction(title: "Отмена", style: .cancel)
         
         alertController.addTextField()
         alertController.textFields?.first?.placeholder = "natasha_ananas"
         
         alertController.addAction(alertAction)
-        alertController.addAction(alertCanсelAction)
+        alertController.addAction(alertCancelAction)
         
         present(alertController, animated: true)
     }
@@ -306,7 +306,6 @@ final class AddPersonViewController: UIViewController, UITextFieldDelegate {
                 
                 let day = arrayDate?[0] ?? ""
                 let month = arrayDate?[1] ?? ""
-                let year = arrayDate?[2] ?? ""
                 
                 let time = NSDate()
                 let formatter = DateFormatter()
@@ -322,7 +321,7 @@ final class AddPersonViewController: UIViewController, UITextFieldDelegate {
                 infoListVC.addImage.layer.borderWidth = 2
                 infoListVC.addNameLabel.text = infoUsers.info[infoUsers.info.count]?.name
                 infoListVC.addInfoLabel.text = "\(day) \(month), иполнится \(ageNew) лет"
-                infoListVC.addDayLabel.text = "120 дней"
+                infoListVC.addDayLabel.text = "248 дней"
 
                 show(infoListVC, sender: nil)
             }

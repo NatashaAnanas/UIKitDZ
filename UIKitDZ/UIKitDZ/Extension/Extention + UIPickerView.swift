@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+// Extention + UIPickerView.swift
 extension AddPersonViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
