@@ -59,7 +59,7 @@ class SignInViewController: UIViewController {
         return label
     }()
     
-    var eyeButton: UIButton = {
+    let eyeButton: UIButton = {
         let button = UIButton(type: .custom)
         button.tintColor = .tertiaryLabel
         button.setImage(UIImage(systemName: "eye"), for: .normal)
@@ -84,6 +84,16 @@ class SignInViewController: UIViewController {
         label.font = .systemFont(ofSize: 35)
         return label
     }()
+    
+    let errorLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .red
+        label.text = ""
+        label.font = .systemFont(ofSize: 19)
+        return label
+    }()
+    
+    let storage = Storage()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -115,6 +125,10 @@ class SignInViewController: UIViewController {
         faceIdLabel.frame = CGRect(x: 150, y: 596, width: 150, height: 40)
         view.addSubview(faceIdLabel)
         
+        errorLabel.frame = CGRect(x: 0, y: 730, width: 330, height: 40)
+        errorLabel.center.x = view.center.x
+        view.addSubview(errorLabel)
+        
         // MARK: - Create TextField
         
         emailTextField.frame = CGRect(x: 50, y: 420, width: 300, height: 45)
@@ -144,8 +158,16 @@ class SignInViewController: UIViewController {
     
     @objc func buttonAction(sender: UIButton) {
         
-        let secondVC = InfoListViewController()
-        self.navigationController?.pushViewController(secondVC, animated: false)
+        let emailText = emailTextField.text ?? ""
+        let passwordText = passwordTextField.text ?? ""
+        
+        if  storage.info[emailText.lowercased()] == passwordText {
+            
+            let secondVC = InfoListViewController()
+            self.navigationController?.pushViewController(secondVC, animated: false)
+        } else {
+            errorLabel.text = "Введен неверный логин или пароль"
+        }
     }
     
     @objc func showPassword(sender: UIButton) {
