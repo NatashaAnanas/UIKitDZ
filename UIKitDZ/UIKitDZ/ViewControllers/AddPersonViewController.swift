@@ -7,7 +7,7 @@
 
 import UIKit
 /// AddPersonViewController - добавить инфу о новом человеке
-class AddPersonViewController: UIViewController, UITextFieldDelegate {
+final class AddPersonViewController: UIViewController, UITextFieldDelegate {
     
     let nameTextField: UITextField = {
         let textField = UITextField()
@@ -124,8 +124,6 @@ class AddPersonViewController: UIViewController, UITextFieldDelegate {
     
     let gender = ["Мужской", "Женский"]
     
-    var countUsers = 0
-    
     var infoUsers = InfoUsers()
 
     override func viewDidLoad() {
@@ -138,13 +136,14 @@ class AddPersonViewController: UIViewController, UITextFieldDelegate {
         addAction()
     }
     
-    func addAction() {
+    private func addAction() {
+        
         instagramTextField.addTarget(self,
                                      action: #selector(instagramTextFieldAction(sender: )),
                                      for: .allEditingEvents)
     }
     
-    @objc func instagramTextFieldAction(sender: UITextField) {
+    @objc private func instagramTextFieldAction(sender: UITextField) {
         
         let alertController = UIAlertController(title: "", message: "Введите свой Instagram", preferredStyle: .alert)
         
@@ -153,18 +152,18 @@ class AddPersonViewController: UIViewController, UITextFieldDelegate {
             let text = alertController.textFields?.first?.text ?? ""
             self.instagramTextField.text = text
         }
-        let alertCanlelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        let alertCanсelAction = UIAlertAction(title: "Отмена", style: .cancel)
         
         alertController.addTextField()
         alertController.textFields?.first?.placeholder = "natasha_ananas"
         
         alertController.addAction(alertAction)
-        alertController.addAction(alertCanlelAction)
+        alertController.addAction(alertCanсelAction)
         
         present(alertController, animated: true)
     }
     
-    func createUI() {
+    private func createUI() {
         
         // MARK: - UIButton
         
@@ -226,7 +225,7 @@ class AddPersonViewController: UIViewController, UITextFieldDelegate {
     }
         // MARK: - Create UIPickerView
         
-        func createPicker() {
+        private func createPicker() {
             
             let toolBar = UIToolbar()
             toolBar.sizeToFit()
@@ -245,7 +244,7 @@ class AddPersonViewController: UIViewController, UITextFieldDelegate {
         
         // MARK: - Create UIDatePicker
         
-        func createDatePicker() {
+        private func createDatePicker() {
             
             let toolBar = UIToolbar()
             toolBar.sizeToFit()
@@ -261,24 +260,24 @@ class AddPersonViewController: UIViewController, UITextFieldDelegate {
             dateTextField.inputAccessoryView = toolBar
         }
     
-    @objc func doneDateAction() {
+    @objc private func doneDateAction() {
         getDateFromPicker()
         self.view.endEditing(true)
     }
     
-    func getDateFromPicker() {
+    private func getDateFromPicker() {
         let formatter = DateFormatter()
         formatter.dateFormat = "dd.MMMM.yyyy"
         dateTextField.text = formatter.string(from: dataPicker.date)
     }
     
-    @objc func doneAction() {
+    @objc private func doneAction() {
         self.view.endEditing(true)
     }
     
     // MARK: - Create Settings View
     
-    func settingsView() {
+    private func settingsView() {
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(
             barButtonSystemItem: .save,
@@ -286,7 +285,7 @@ class AddPersonViewController: UIViewController, UITextFieldDelegate {
             action: #selector(actionAdd(sender: )))
     }
     
-    @objc func actionAdd(sender: UIBarButtonItem) {
+    @objc private func actionAdd(sender: UIBarButtonItem) {
         
         if (nameTextField.text?.isEmpty == false),
            (dateTextField.text?.isEmpty == false),
@@ -328,9 +327,5 @@ class AddPersonViewController: UIViewController, UITextFieldDelegate {
                 show(infoListVC, sender: nil)
             }
         }
-    }
-    
-    func formatDate(data: String) {
-        
     }
 }

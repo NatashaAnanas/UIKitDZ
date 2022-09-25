@@ -7,7 +7,7 @@
 
 import UIKit
 /// InfoListViewController - список дней рождений
-class InfoListViewController: UIViewController {
+final class InfoListViewController: UIViewController {
     
     let firstImage: UIImageView = {
         let image = UIImageView()
@@ -167,7 +167,7 @@ class InfoListViewController: UIViewController {
         createNewCell()
     }
 
-    func createUI() {
+    private func createUI() {
         
         // MARK: - Create UIImageView
         
@@ -210,7 +210,7 @@ class InfoListViewController: UIViewController {
         view.addSubview(thirdDayLabel)
     }
     
-    func createNewCell() {
+    private func createNewCell() {
             
             addImage.frame = CGRect(x: 20, y: 430, width: 70, height: 70)
             view.addSubview(addImage)
@@ -225,7 +225,7 @@ class InfoListViewController: UIViewController {
             view.addSubview(addDayLabel)
     }
     
-    func viewSettings() {
+    private func viewSettings() {
         self.title = "Birthday"
         view.backgroundColor = .white
         
@@ -235,7 +235,7 @@ class InfoListViewController: UIViewController {
             action: #selector(actionAdd(sender: )))
     }
     
-    @objc func actionAdd(sender: UIBarButtonItem) {
+    @objc private func actionAdd(sender: UIBarButtonItem) {
         
         let threeVC = AddPersonViewController()
         self.navigationController?.pushViewController(threeVC, animated: false)

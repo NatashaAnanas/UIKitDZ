@@ -5,13 +5,6 @@
 //  Created by Анастасия Козлова on 24.09.2022.
 //
 
-// extension InfoListViewController: UIPickerViewDelegate {
-//    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-//
-//        "Парень"
-//    }
-// }
-
 import UIKit
 
 extension AddPersonViewController: UIPickerViewDataSource, UIPickerViewDelegate {

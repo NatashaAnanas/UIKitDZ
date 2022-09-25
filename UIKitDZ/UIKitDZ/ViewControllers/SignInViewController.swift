@@ -7,7 +7,7 @@
 
 import UIKit
 /// SignInViewController - экран регистрации
-class SignInViewController: UIViewController {
+final class SignInViewController: UIViewController {
     
     let emailTextField: UITextField = {
         let textField = UITextField()
@@ -99,12 +99,9 @@ class SignInViewController: UIViewController {
         super.viewDidLoad()
         
         createUI()
-
-        eyeButton.addTarget(self, action: #selector(showPassword(sender: )), for: .touchUpInside)
-        signInButton.addTarget(self, action: #selector(buttonAction(sender: )), for: .touchUpInside)
     }
     
-    func createUI() {
+    private func createUI() {
         
         // MARK: - Create Label
         
@@ -154,9 +151,12 @@ class SignInViewController: UIViewController {
         faceIdSwitch.frame = CGRect(x: 295, y: 600, width: 1, height: 1)
         faceIdSwitch.isOn = true
         view.addSubview(faceIdSwitch)
+        
+        eyeButton.addTarget(self, action: #selector(showPassword(sender: )), for: .touchUpInside)
+        signInButton.addTarget(self, action: #selector(buttonAction(sender: )), for: .touchUpInside)
     }
     
-    @objc func buttonAction(sender: UIButton) {
+    @objc private func buttonAction(sender: UIButton) {
         
         let emailText = emailTextField.text ?? ""
         let passwordText = passwordTextField.text ?? ""
@@ -170,7 +170,7 @@ class SignInViewController: UIViewController {
         }
     }
     
-    @objc func showPassword(sender: UIButton) {
+    @objc private func showPassword(sender: UIButton) {
         
         let eyeClose = UIImage(systemName: "eye.slash")
         let eye = UIImage(systemName: "eye")
