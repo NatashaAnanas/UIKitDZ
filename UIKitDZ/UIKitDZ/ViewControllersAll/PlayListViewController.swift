@@ -19,7 +19,7 @@ final class PlayListViewController: UIViewController {
         createImage()
     }
     
-    @IBAction func trackButtonAction(_ sender: Any) {
+    @IBAction func trackFirstButtonAction(_ sender: Any) {
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         if let vc2 = storyboard.instantiateViewController(withIdentifier: "vc2") as? FirstTrackViewController {
@@ -27,6 +27,7 @@ final class PlayListViewController: UIViewController {
             show(vc2, sender: nil)
         }
     }
+
     @IBAction func trackTwoButtonAction(_ sender: Any) {
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)

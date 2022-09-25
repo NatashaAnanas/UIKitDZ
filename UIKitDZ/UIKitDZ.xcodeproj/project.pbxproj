@@ -59,13 +59,6 @@
 			path = ViewControllersAll;
 			sourceTree = "<group>";
 		};
-		4102F4DE28DF2694000E3BBC /* New Group */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "New Group";
-			sourceTree = "<group>";
-		};
 		418D876528DB8387006178FD = {
 			isa = PBXGroup;
 			children = (
@@ -87,7 +80,6 @@
 		418D877028DB8387006178FD /* UIKitDZ */ = {
 			isa = PBXGroup;
 			children = (
-				4102F4DE28DF2694000E3BBC /* New Group */,
 				4102F4DD28DF2474000E3BBC /* ViewControllersAll */,
 				418D877128DB8387006178FD /* AppDelegate.swift */,
 				418D877328DB8387006178FD /* SceneDelegate.swift */,
