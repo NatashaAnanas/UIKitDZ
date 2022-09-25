@@ -318,15 +318,15 @@ class AddPersonViewController: UIViewController, UITextFieldDelegate {
                 print(formatteddate)
                 
                 infoListVC.addImage.image = UIImage(named: "me")
+                infoListVC.addImage.layer.cornerRadius = 35
+                infoListVC.addImage.layer.borderColor = UIColor.systemIndigo.cgColor
+                infoListVC.addImage.layer.borderWidth = 2
                 infoListVC.addNameLabel.text = infoUsers.info[infoUsers.info.count]?.name
                 infoListVC.addInfoLabel.text = "\(day) \(month), иполнится \(ageNew) лет"
+                infoListVC.addDayLabel.text = "120 дней"
 
                 show(infoListVC, sender: nil)
             }
-            
-//            let secondVC = InfoListViewController()
-//            self.navigationController?.pushViewController(secondVC, animated: false)
-            
         }
     }
     

@@ -13,6 +13,9 @@
 		4102F4C828DE1866000E3BBC /* InfoUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4102F4C728DE1866000E3BBC /* InfoUsers.swift */; };
 		4102F4CB28DEE829000E3BBC /* Extension + UIPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4102F4CA28DEE829000E3BBC /* Extension + UIPickerView.swift */; };
 		4115016828DF792E003B024B /* me.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4115016728DF792E003B024B /* me.jpg */; };
+		4115016B28E04197003B024B /* Настя.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 4115016928E04197003B024B /* Настя.jpeg */; };
+		4115016C28E04197003B024B /* Саша.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 4115016A28E04197003B024B /* Саша.jpeg */; };
+		4115016E28E041C2003B024B /* Ирина.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 4115016D28E041C2003B024B /* Ирина.jpeg */; };
 		418D877228DB8387006178FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418D877128DB8387006178FD /* AppDelegate.swift */; };
 		418D877428DB8387006178FD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418D877328DB8387006178FD /* SceneDelegate.swift */; };
 		418D877628DB8387006178FD /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418D877528DB8387006178FD /* SignInViewController.swift */; };
@@ -29,6 +32,9 @@
 		4102F4C728DE1866000E3BBC /* InfoUsers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoUsers.swift; sourceTree = "<group>"; };
 		4102F4CA28DEE829000E3BBC /* Extension + UIPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + UIPickerView.swift"; sourceTree = "<group>"; };
 		4115016728DF792E003B024B /* me.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = me.jpg; sourceTree = "<group>"; };
+		4115016928E04197003B024B /* Настя.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Настя.jpeg"; sourceTree = "<group>"; };
+		4115016A28E04197003B024B /* Саша.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Саша.jpeg"; sourceTree = "<group>"; };
+		4115016D28E041C2003B024B /* Ирина.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Ирина.jpeg"; sourceTree = "<group>"; };
 		418D876E28DB8387006178FD /* UIKitDZ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UIKitDZ.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		418D877128DB8387006178FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		418D877328DB8387006178FD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -72,6 +78,7 @@
 			isa = PBXGroup;
 			children = (
 				418D877028DB8387006178FD /* UIKitDZ */,
+				4115016D28E041C2003B024B /* Ирина.jpeg */,
 				418D876F28DB8387006178FD /* Products */,
 			);
 			sourceTree = "<group>";
@@ -98,6 +105,8 @@
 				418D877F28DB838B006178FD /* Info.plist */,
 				4115016728DF792E003B024B /* me.jpg */,
 				4102F4C528DDEED0000E3BBC /* иконка.jpeg */,
+				4115016928E04197003B024B /* Настя.jpeg */,
+				4115016A28E04197003B024B /* Саша.jpeg */,
 			);
 			path = UIKitDZ;
 			sourceTree = "<group>";
@@ -174,8 +183,11 @@
 				4115016828DF792E003B024B /* me.jpg in Resources */,
 				418D877E28DB838B006178FD /* LaunchScreen.storyboard in Resources */,
 				418D877B28DB838B006178FD /* Assets.xcassets in Resources */,
+				4115016E28E041C2003B024B /* Ирина.jpeg in Resources */,
 				4102F4C628DDEED0000E3BBC /* иконка.jpeg in Resources */,
 				418D877928DB8387006178FD /* Main.storyboard in Resources */,
+				4115016B28E04197003B024B /* Настя.jpeg in Resources */,
+				4115016C28E04197003B024B /* Саша.jpeg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

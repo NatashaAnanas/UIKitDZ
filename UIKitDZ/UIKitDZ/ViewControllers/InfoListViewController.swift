@@ -11,36 +11,44 @@ class InfoListViewController: UIViewController {
     
     let firstImage: UIImageView = {
         let image = UIImageView()
-        image.image = UIImage(named: "иконка")
+        image.image = UIImage(named: "Саша")
         image.layer.cornerRadius = 35
         image.clipsToBounds = true
+        image.layer.cornerRadius = 35
+        image.layer.borderColor = UIColor.systemIndigo.cgColor
+        image.layer.borderWidth = 2
+        image.contentMode = .scaleAspectFill
         return image
     }()
     
     let secondImage: UIImageView = {
         let image = UIImageView()
-        image.image = UIImage(named: "иконка")
+        image.image = UIImage(named: "Ирина")
         image.layer.cornerRadius = 35
         image.clipsToBounds = true
+        image.layer.cornerRadius = 35
+        image.layer.borderColor = UIColor.systemIndigo.cgColor
+        image.layer.borderWidth = 2
+        image.contentMode = .scaleAspectFill
         return image
     }()
     
     let thirdImage: UIImageView = {
         let image = UIImageView()
-        image.image = UIImage(named: "иконка")
+        image.image = UIImage(named: "Настя")
         image.layer.cornerRadius = 35
         image.clipsToBounds = true
+        image.layer.cornerRadius = 35
+        image.layer.borderColor = UIColor.systemIndigo.cgColor
+        image.layer.borderWidth = 2
+        image.contentMode = .scaleAspectFill
         return image
     }()
     
     var addImage: UIImageView = {
         let image = UIImageView()
-//        image.image = UIImage(named: "me")
-        image.layer.cornerRadius = 35
         image.clipsToBounds = true
         image.contentMode = .scaleAspectFill
-        image.layer.borderColor = UIColor.systemIndigo.cgColor
-        image.layer.borderWidth = 2
         return image
     }()
     
@@ -55,7 +63,7 @@ class InfoListViewController: UIViewController {
     
     let secondNameLabel: UILabel = {
         let label = UILabel()
-        label.text = "Masha"
+        label.text = "Ирина Федосеева"
         label.textColor = .black
         label.font = .systemFont(ofSize: 22)
         label.textAlignment = .left
@@ -64,7 +72,7 @@ class InfoListViewController: UIViewController {
     
     let thirdNameLabel: UILabel = {
         let label = UILabel()
-        label.text = "Dasha Ivanova"
+        label.text = "Настя"
         label.textColor = .black
         label.font = .systemFont(ofSize: 22)
         label.textAlignment = .left
@@ -116,7 +124,7 @@ class InfoListViewController: UIViewController {
     
     let firstInfoLabel: UILabel = {
         let label = UILabel()
-        label.text = "10 марта, исполнится 25 лет"
+        label.text = "2 марта, исполнится 25 лет"
         label.textColor = .systemGray
         label.font = .systemFont(ofSize: 18)
         label.textAlignment = .left
@@ -125,7 +133,7 @@ class InfoListViewController: UIViewController {
     
     let secondInfoLabel: UILabel = {
         let label = UILabel()
-        label.text = "30 марта, исполнится 20 лет"
+        label.text = "4 сентября, исполнится 27 лет"
         label.textColor = .systemGray
         label.font = .systemFont(ofSize: 18)
         label.textAlignment = .left
@@ -134,7 +142,7 @@ class InfoListViewController: UIViewController {
     
     let thirdInfoLabel: UILabel = {
         let label = UILabel()
-        label.text = "22 апреля, исполнится 27 лет"
+        label.text = "17 апреля, исполнится 20 лет"
         label.textColor = .systemGray
         label.font = .systemFont(ofSize: 18)
         label.textAlignment = .left
@@ -174,22 +182,22 @@ class InfoListViewController: UIViewController {
         
         // MARK: - Create UILabel
         
-        firstNameLabel.frame = CGRect(x: 90, y: 135, width: 200, height: 20)
+        firstNameLabel.frame = CGRect(x: 100, y: 135, width: 200, height: 20)
         view.addSubview(firstNameLabel)
         
-        secondNameLabel.frame = CGRect(x: 90, y: 235, width: 200, height: 20)
+        secondNameLabel.frame = CGRect(x: 100, y: 235, width: 200, height: 20)
         view.addSubview(secondNameLabel)
         
-        thirdNameLabel.frame = CGRect(x: 90, y: 335, width: 200, height: 20)
+        thirdNameLabel.frame = CGRect(x: 100, y: 335, width: 200, height: 20)
         view.addSubview(thirdNameLabel)
         
-        firstInfoLabel.frame = CGRect(x: 90, y: 160, width: 300, height: 20)
+        firstInfoLabel.frame = CGRect(x: 100, y: 160, width: 300, height: 20)
         view.addSubview(firstInfoLabel)
         
-        secondInfoLabel.frame = CGRect(x: 90, y: 260, width: 300, height: 20)
+        secondInfoLabel.frame = CGRect(x: 100, y: 260, width: 300, height: 20)
         view.addSubview(secondInfoLabel)
         
-        thirdInfoLabel.frame = CGRect(x: 90, y: 360, width: 300, height: 20)
+        thirdInfoLabel.frame = CGRect(x: 100, y: 360, width: 300, height: 20)
         view.addSubview(thirdInfoLabel)
         
         firstDayLabel.frame = CGRect(x: 320, y: 135, width: 100, height: 20)
@@ -200,7 +208,21 @@ class InfoListViewController: UIViewController {
         
         thirdDayLabel.frame = CGRect(x: 320, y: 335, width: 100, height: 20)
         view.addSubview(thirdDayLabel)
+    }
     
+    func createNewCell() {
+            
+            addImage.frame = CGRect(x: 20, y: 430, width: 70, height: 70)
+            view.addSubview(addImage)
+        
+            addNameLabel.frame = CGRect(x: 100, y: 435, width: 200, height: 20)
+            view.addSubview(addNameLabel)
+
+            addInfoLabel.frame = CGRect(x: 100, y: 460, width: 300, height: 20)
+            view.addSubview(addInfoLabel)
+            
+            addDayLabel.frame = CGRect(x: 320, y: 435, width: 100, height: 20)
+            view.addSubview(addDayLabel)
     }
     
     func viewSettings() {
@@ -218,22 +240,5 @@ class InfoListViewController: UIViewController {
         let threeVC = AddPersonViewController()
         self.navigationController?.pushViewController(threeVC, animated: false)
         
-    }
-    
-    func createNewCell() {
-        
-        print("УРАААА")
-            
-            addImage.frame = CGRect(x: 20, y: 430, width: 70, height: 70)
-            view.addSubview(addImage)
-        
-            addNameLabel.frame = CGRect(x: 100, y: 435, width: 200, height: 20)
-            view.addSubview(addNameLabel)
-
-            addInfoLabel.frame = CGRect(x: 100, y: 460, width: 300, height: 20)
-            view.addSubview(addInfoLabel)
-            
-            addDayLabel.frame = CGRect(x: 320, y: 435, width: 100, height: 20)
-            view.addSubview(addDayLabel)
     }
 }
