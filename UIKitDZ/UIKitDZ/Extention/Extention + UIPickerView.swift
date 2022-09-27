@@ -6,8 +6,8 @@
 //
 
 import UIKit
-
-extension ViewController: UIPickerViewDataSource, UIPickerViewDelegate {
+/// Extention + UIPickerViewn (UIPickerViewDataSource, UIPickerViewDelegate)
+extension StartViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         1
@@ -30,15 +30,23 @@ extension ViewController: UIPickerViewDataSource, UIPickerViewDelegate {
             return ""
         }
     }
-//
+    
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         switch appArray[row] {
         case "Share":
-            self.present(activityViewController, animated: true, completion: nil)
+            present(activityViewController, animated: true, completion: nil)
+            shareTextField.text = "Сработал Share"
         case "Alert Controller":
-            self.createAlert(titel: "Alert", message: "Сработал Alert Controller", preferredStyle: .alert)
+            createAlert(titel: "Alert", message: "Сработал Alert Controller", preferredStyle: .alert)
+            shareTextField.text = "Сработал Alert Controller"
         case "Alert Controller Sheet":
-            self.createAlert(titel: "Alert", message: "Сработал Alert Controller", preferredStyle: .actionSheet)
+            createAlert(titel: "Alert", message: "Сработал Alert Controller", preferredStyle: .actionSheet)
+            shareTextField.text = "Сработал Alert Controller Sheet"
+        case "TextField":
+            shareTextField.text = "Сработал TextField"
+        case "Switch":
+            shareSwitch.setOn(false, animated: true)
+            shareTextField.text = "Сработал Switch"
         default:
             break
         }

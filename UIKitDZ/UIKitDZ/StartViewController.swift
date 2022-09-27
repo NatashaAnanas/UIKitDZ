@@ -6,19 +6,20 @@
 //
 
 import UIKit
-/// ViewController
-class ViewController: UIViewController {
+/// StartViewController - начальный контроллер
+class StartViewController: UIViewController {
     
+    @IBOutlet weak var shareSwitch: UISwitch!
     @IBOutlet weak var shareButton: UIButton!
+    @IBOutlet weak var shareTextField: UITextField!
+    
+    let appArray = ["Share", "Alert Controller", "Alert Controller Sheet", "TextField", "Switch"]
 
-    var appPicker: UIPickerView = {
-        
+    private var appPicker: UIPickerView = {
         let picker = UIPickerView()
         picker.tag = 0
         return picker
     }()
-    
-    let appArray = ["Share", "Alert Controller", "Alert Controller Sheet"]
     
     var activityViewController = UIActivityViewController(activityItems: ["Apps"], applicationActivities: nil)
     
@@ -26,6 +27,11 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         createUI()
+    }
+    
+    @IBAction func shareButtonAction(_ sender: Any) {
+        
+        self.present(activityViewController, animated: true, completion: nil)
     }
     
     public func createAlert(titel: String, message: String, preferredStyle: UIAlertController.Style) {
@@ -40,11 +46,6 @@ class ViewController: UIViewController {
         
         present(alertController, animated: true)
         
-    }
-    
-    @IBAction func shareButtonAction(_ sender: Any) {
-        
-        self.present(activityViewController, animated: true, completion: nil)
     }
     
     private func createUI() {
