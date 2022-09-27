@@ -152,7 +152,7 @@ final class SignInViewController: UIViewController {
         faceIdSwitch.isOn = true
         view.addSubview(faceIdSwitch)
         
-        eyeButton.addTarget(self, action: #selector(showPassword(sender: )), for: .touchUpInside)
+        eyeButton.addTarget(self, action: #selector(showPasswordAction(sender: )), for: .touchUpInside)
         signInButton.addTarget(self, action: #selector(buttonAction(sender: )), for: .touchUpInside)
     }
     
@@ -161,26 +161,26 @@ final class SignInViewController: UIViewController {
         let emailText = emailTextField.text ?? ""
         let passwordText = passwordTextField.text ?? ""
         
-        if  storage.info[emailText.lowercased()] == passwordText {
-            
+        guard storage.info[emailText.lowercased()] == passwordText else {
+            errorLabel.text = "Введен неверный логин или пароль"
+            return
+        }
+        
             let secondVC = InfoListViewController()
             self.navigationController?.pushViewController(secondVC, animated: false)
-        } else {
-            errorLabel.text = "Введен неверный логин или пароль"
-        }
     }
     
-    @objc private func showPassword(sender: UIButton) {
+    @objc private func showPasswordAction(sender: UIButton) {
         
-        let eyeClose = UIImage(systemName: "eye.slash")
-        let eye = UIImage(systemName: "eye")
+        let eyeCloseImage = UIImage(systemName: "eye.slash")
+        let eyeImage = UIImage(systemName: "eye")
         
         if self.passwordTextField.isSecureTextEntry {
             self.passwordTextField.isSecureTextEntry = false
-            eyeButton.setImage(eyeClose, for: .normal)
+            eyeButton.setImage(eyeCloseImage, for: .normal)
         } else {
             self.passwordTextField.isSecureTextEntry = true
-            eyeButton.setImage(eye, for: .normal)
+            eyeButton.setImage(eyeImage, for: .normal)
         }
     }
 }

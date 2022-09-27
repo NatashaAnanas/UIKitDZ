@@ -229,7 +229,7 @@ final class InfoListViewController: UIViewController {
         self.title = "Birthday"
         view.backgroundColor = .white
         
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
             barButtonSystemItem: .add,
             target: self,
             action: #selector(actionAdd(sender: )))
@@ -238,7 +238,6 @@ final class InfoListViewController: UIViewController {
     @objc private func actionAdd(sender: UIBarButtonItem) {
         
         let threeVC = AddPersonViewController()
-        self.navigationController?.pushViewController(threeVC, animated: false)
-        
+        navigationController?.pushViewController(threeVC, animated: false)
     }
 }
