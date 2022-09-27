@@ -86,16 +86,16 @@ class BookingViewController: UIViewController {
         settingsView()
     }
     
-    func settingsView() {
+    private func settingsView() {
         
         view.backgroundColor = .groupTableViewBackground
         
-        self.navigationController?.navigationBar.tintColor = .black
+        navigationController?.navigationBar.tintColor = .black
         
         bookingButton.addTarget(self, action: #selector(bookingButtonAction(sender: )), for: .touchUpInside)
     }
     
-    func createUI() {
+    private func createUI() {
         
         houseImage.frame = CGRect(x: 0, y: 375, width: 370, height: 220)
         houseImage.center.x = view.center.x
@@ -125,7 +125,6 @@ class BookingViewController: UIViewController {
         bookingButton.frame = CGRect(x: 0, y: 670, width: 200, height: 70)
         bookingButton.center.x = view.center.x
         view.addSubview(bookingButton)
-        
     }
     
     private func createAlert(title: String, message: String, preferredStyle: UIAlertController.Style) {
@@ -135,28 +134,23 @@ class BookingViewController: UIViewController {
                                                 preferredStyle: .alert)
         
         let alertAction = UIAlertAction(title: "Ok", style: .default) { _ in
-            
         }
         
         alertController.addAction(alertAction)
-        
         present(alertController, animated: true)
     }
     
     @objc private func bookingButtonAction(sender: UIButton) {
         
-        let name = nameTextField.text ?? ""
-        let number = numberTextField.text ?? ""
+        let nameText = nameTextField.text ?? ""
+        let numberText = numberTextField.text ?? ""
         
-        if name.isEmpty || number.isEmpty {
-            
-            createAlert(title: "Заполните все поля", message: "", preferredStyle: .alert)
-        } else {
-            
+        guard nameText.isEmpty || numberText.isEmpty else {
             createAlert(title: "Ваш заказ сформирован",
                         message: "С вами скоро свяжутся представители нашей сомпании",
                         preferredStyle: .alert)
+            return
         }
-        
+        createAlert(title: "Заполните все поля", message: "", preferredStyle: .alert)
     }
 }

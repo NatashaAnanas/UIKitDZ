@@ -11,10 +11,10 @@ class BedViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         settingsView()
     }
-    func settingsView() {
-        self.view.backgroundColor = .groupTableViewBackground
+    private func settingsView() {
+        view.backgroundColor = .groupTableViewBackground
     }
 }
