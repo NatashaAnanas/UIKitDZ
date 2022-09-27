@@ -22,6 +22,7 @@
 		41A8B54828E224EA008C77A4 /* HouseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A8B54728E224EA008C77A4 /* HouseViewController.swift */; };
 		41A8B54A28E22555008C77A4 /* BedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A8B54928E22555008C77A4 /* BedViewController.swift */; };
 		41A8B54C28E24633008C77A4 /* Description.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A8B54B28E24633008C77A4 /* Description.swift */; };
+		41A8B54F28E2D23C008C77A4 /* BookingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A8B54E28E2D23C008C77A4 /* BookingViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		41A8B54728E224EA008C77A4 /* HouseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseViewController.swift; sourceTree = "<group>"; };
 		41A8B54928E22555008C77A4 /* BedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BedViewController.swift; sourceTree = "<group>"; };
 		41A8B54B28E24633008C77A4 /* Description.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Description.swift; sourceTree = "<group>"; };
+		41A8B54E28E2D23C008C77A4 /* BookingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 				418D877528DB8387006178FD /* StartViewController.swift */,
 				41A8B54528E22402008C77A4 /* BaseTabBarController.swift */,
 				41A8B54728E224EA008C77A4 /* HouseViewController.swift */,
+				41A8B54E28E2D23C008C77A4 /* BookingViewController.swift */,
 				41A8B54928E22555008C77A4 /* BedViewController.swift */,
 			);
 			path = "View Controllers";
@@ -214,6 +217,7 @@
 				41A8B54C28E24633008C77A4 /* Description.swift in Sources */,
 				418D877628DB8387006178FD /* StartViewController.swift in Sources */,
 				418D877228DB8387006178FD /* AppDelegate.swift in Sources */,
+				41A8B54F28E2D23C008C77A4 /* BookingViewController.swift in Sources */,
 				418D877428DB8387006178FD /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
