@@ -77,9 +77,9 @@ final class FirstTrackViewController: UIViewController {
         player.currentTime -= 10
     }
     
-    @objc private func updateTime() {
+    @objc private func updateTimeAction() {
         
-        self.timeSlider.value = Float(player.currentTime)
+        timeSlider.value = Float(player.currentTime)
         let currentTime = player.currentTime
         let minutes = Int(currentTime / 60)
         let seconds = Int(currentTime.truncatingRemainder(dividingBy: 60))
@@ -113,7 +113,7 @@ final class FirstTrackViewController: UIViewController {
         
         timer = Timer.scheduledTimer(timeInterval: 1,
                                      target: self,
-                                     selector: #selector(updateTime),
+                                     selector: #selector(updateTimeAction),
                                      userInfo: nil,
                                      repeats: true)
         view.addSubview(nameTrackLabel)

@@ -39,7 +39,7 @@ final class PlayListViewController: UIViewController {
     
     private func createImage() {
         
-        self.title = "PList"
+        title = "PList"
         
         firstImage.layer.cornerRadius = 10
         secondImage.layer.cornerRadius = 10

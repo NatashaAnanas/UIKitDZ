@@ -56,16 +56,16 @@ final class SecondTrackViewController: UIViewController {
     @IBAction func playButtonAction(_ sender: UIButton) {
         
         let pauseImage = UIImage(systemName: "pause.circle")
-        
         let playImage = UIImage(systemName: "play.circle")
-
-        if player.isPlaying == false {
-        self.player.play()
-        sender.setImage(pauseImage, for: .normal)
-        } else {
+        
+        guard player.isPlaying == false else {
+            
             self.player.pause()
             sender.setImage(playImage, for: .normal)
+            return
         }
+        self.player.play()
+        sender.setImage(pauseImage, for: .normal)
     }
     
     @IBAction func forwardButtonAction(_ sender: Any) {
@@ -80,8 +80,8 @@ final class SecondTrackViewController: UIViewController {
     
     private func createImage() {
         
-        self.navigationController?.navigationBar.topItem?.titleView?.tintColor = .black
-        self.title = "Playing from album"
+        navigationController?.navigationBar.topItem?.titleView?.tintColor = .black
+        title = "Playing from album"
         
         albumImage.layer.cornerRadius = 30
 
