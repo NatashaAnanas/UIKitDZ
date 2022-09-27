@@ -31,7 +31,7 @@ class StartViewController: UIViewController {
     
     @IBAction func shareButtonAction(_ sender: Any) {
         
-        self.present(activityViewController, animated: true, completion: nil)
+        present(activityViewController, animated: true, completion: nil)
     }
     
     public func createAlert(titel: String, message: String, preferredStyle: UIAlertController.Style) {
