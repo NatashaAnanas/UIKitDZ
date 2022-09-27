@@ -9,7 +9,7 @@ import UIKit
 /// BookingViewController - бронироване дома
 class BookingViewController: UIViewController {
     
-    let bookingButton: UIButton = {
+    private let bookingButton: UIButton = {
         let button = UIButton()
         button.layer.cornerRadius = 25
         button.backgroundColor = .tertiaryLabel
@@ -19,7 +19,7 @@ class BookingViewController: UIViewController {
         return button
     }()
     
-    let nameTextField: UITextField = {
+    private let nameTextField: UITextField = {
         let textField = UITextField()
         textField.textAlignment = .center
         textField.borderStyle = .roundedRect
@@ -27,7 +27,7 @@ class BookingViewController: UIViewController {
         return textField
     }()
     
-    let numberTextField: UITextField = {
+    private let numberTextField: UITextField = {
         let textField = UITextField()
         textField.textAlignment = .center
         textField.borderStyle = .roundedRect
@@ -35,7 +35,7 @@ class BookingViewController: UIViewController {
         return textField
     }()
     
-    let nameLabel: UILabel = {
+    private let nameLabel: UILabel = {
         let label = UILabel()
         label.text = "Имя"
         label.font = .systemFont(ofSize: 23)
@@ -43,7 +43,7 @@ class BookingViewController: UIViewController {
         return label
     }()
     
-    let numberLabel: UILabel = {
+    private let numberLabel: UILabel = {
         let label = UILabel()
         label.text = "Номер телефона"
         label.font = .systemFont(ofSize: 23)
@@ -51,7 +51,7 @@ class BookingViewController: UIViewController {
         return label
     }()
     
-    let infoLabel: UILabel = {
+    private let infoLabel: UILabel = {
         let label = UILabel()
         label.text = "Введите свои данные"
         label.textAlignment = .center

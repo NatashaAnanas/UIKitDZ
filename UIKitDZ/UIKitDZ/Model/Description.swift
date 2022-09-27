@@ -6,7 +6,8 @@
 //
 
 import UIKit
-/// Description - хранит описание домов
+/// Description: хранит описание домов
+/// - descriptionArray: Массив с описанием домов
 struct Description {
     
     let descriptionArray = [

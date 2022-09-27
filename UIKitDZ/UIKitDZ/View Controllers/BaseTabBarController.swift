@@ -6,14 +6,13 @@
 //
 
 import UIKit
-/// BaseTabBarController - TabBarController
+/// BaseTabBarController - TabBarController, где две секции дома и кровати 
 class BaseTabBarController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         viewControllers = [
-            
             createNavController(viewController: HouseViewController(), titel: "House", imageName: "house"),
             createNavController(viewController: BedViewController(), titel: "Bed", imageName: "bed.double"),
         ]
@@ -26,7 +25,6 @@ class BaseTabBarController: UITabBarController {
         let navController = UINavigationController(rootViewController: viewController)
         
         navController.navigationBar.prefersLargeTitles = true
-//        viewController.navigationItem.title = titel
         
         navController.tabBarItem.badgeColor = .systemMint
         navController.tabBarItem.badgeValue = "New"
@@ -34,6 +32,5 @@ class BaseTabBarController: UITabBarController {
         navController.tabBarItem.image = UIImage(systemName: imageName)
         
         return navController
-    
     }
 }

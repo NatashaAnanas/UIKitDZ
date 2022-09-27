@@ -6,12 +6,15 @@
 //
 
 import UIKit
-/// BedViewController - выбор кроватей
+/// BedViewController - контроллер выбор кроватей
 class BedViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
+        settingsView()
+    }
+    func settingsView() {
         self.view.backgroundColor = .groupTableViewBackground
     }
 }

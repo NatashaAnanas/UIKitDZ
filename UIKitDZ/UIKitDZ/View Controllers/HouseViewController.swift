@@ -6,7 +6,7 @@
 //
 
 import UIKit
-/// HouseViewController - выбор домов
+/// HouseViewController - контроллер выбора домов
 class HouseViewController: UIViewController {
     
     private let chouseButton: UIButton = {
@@ -42,10 +42,6 @@ class HouseViewController: UIViewController {
         return label
     }()
     
-    private let nameHouseArray = ["Forest Residence", "Aura Haus", "Ultra Park"]
-    
-    private let descriptText = Description()
-    
     private let nameLabel: UILabel = {
         let label = UILabel()
         label.text = "HOUSE"
@@ -66,6 +62,10 @@ class HouseViewController: UIViewController {
         return text
     }()
     
+    private let nameHouseArray = ["Forest Residence", "Aura Haus", "Ultra Park"]
+    
+    private let descriptText = Description()
+    
     private var segmentedControl = UISegmentedControl()
     
     override func viewDidLoad() {
@@ -77,12 +77,11 @@ class HouseViewController: UIViewController {
     
     private func settingsView() {
         
-        self.view.backgroundColor = .groupTableViewBackground
+        view.backgroundColor = .groupTableViewBackground
+        tabBarController?.title = "Life Deluxe"
     }
     
-    func createUI() {
-        
-        tabBarController?.title = "Life Deluxe"
+    private func createUI() {
         
         chouseButton.frame = CGRect(x: 0, y: 685, width: 170, height: 50)
         chouseButton.center.x = view.center.x
@@ -96,7 +95,6 @@ class HouseViewController: UIViewController {
         segmentedControl.frame = CGRect(x: 0, y: 750, width: 350, height: 50)
         segmentedControl.center.x = view.center.x
         segmentedControl.backgroundColor = .lightText
-        
         view.addSubview(segmentedControl)
         
         segmentedControl.addTarget(self, action: #selector(selectedValue(target: )), for: .valueChanged)
@@ -115,17 +113,14 @@ class HouseViewController: UIViewController {
     }
     
     @objc private func selectedValue(target: UISegmentedControl) {
-        if target == segmentedControl {
+        
             view.addSubview(chouseButton)
             
             textLabel.text = ""
+        
             let segmentIndex = segmentedControl.selectedSegmentIndex
             imageViewRoom.image = imageArray[segmentIndex]
             descriptionTextView.text = descriptText.descriptionArray[segmentIndex]
-            
-            let pr = target.titleForSegment(at: segmentIndex)
-            print(pr ?? "")
-        }
     }
     
     @objc private func chouseButtonAction(sender: UIButton) {
@@ -137,11 +132,9 @@ class HouseViewController: UIViewController {
         let segmentIndex = segmentedControl.selectedSegmentIndex
         
         bookingVC.houseImage.image = imageArray[segmentIndex]
-        
         bookingVC.nameHouseLabel.text = nameHouseArray[segmentIndex]
         
-        show(bookingVC, sender: true)
-        
         navController.modalPresentationStyle = .fullScreen
+        show(bookingVC, sender: true)
     }
 }
