@@ -120,7 +120,7 @@ class HouseViewController: UIViewController {
         
             let segmentIndex = segmentedControl.selectedSegmentIndex
             imageViewRoom.image = imageArray[segmentIndex]
-            descriptionTextView.text = descriptText.descriptionArray[segmentIndex]
+            descriptionTextView.text = descriptText.descriptionHouseArray[segmentIndex]
     }
     
     @objc private func chouseButtonAction(sender: UIButton) {

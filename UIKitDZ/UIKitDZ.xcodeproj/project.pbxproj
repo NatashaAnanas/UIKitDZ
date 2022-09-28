@@ -23,6 +23,9 @@
 		41A8B54A28E22555008C77A4 /* BedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A8B54928E22555008C77A4 /* BedViewController.swift */; };
 		41A8B54C28E24633008C77A4 /* Description.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A8B54B28E24633008C77A4 /* Description.swift */; };
 		41A8B54F28E2D23C008C77A4 /* BookingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A8B54E28E2D23C008C77A4 /* BookingViewController.swift */; };
+		41A8B55628E425C5008C77A4 /* кровать2.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 41A8B55328E425C4008C77A4 /* кровать2.jpeg */; };
+		41A8B55728E425C5008C77A4 /* кровать1.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 41A8B55428E425C5008C77A4 /* кровать1.jpeg */; };
+		41A8B55828E425C5008C77A4 /* кровать3.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 41A8B55528E425C5008C77A4 /* кровать3.jpeg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +47,9 @@
 		41A8B54928E22555008C77A4 /* BedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BedViewController.swift; sourceTree = "<group>"; };
 		41A8B54B28E24633008C77A4 /* Description.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Description.swift; sourceTree = "<group>"; };
 		41A8B54E28E2D23C008C77A4 /* BookingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingViewController.swift; sourceTree = "<group>"; };
+		41A8B55328E425C4008C77A4 /* кровать2.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "кровать2.jpeg"; path = "../../../../кровать2.jpeg"; sourceTree = "<group>"; };
+		41A8B55428E425C5008C77A4 /* кровать1.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "кровать1.jpeg"; path = "../../../../кровать1.jpeg"; sourceTree = "<group>"; };
+		41A8B55528E425C5008C77A4 /* кровать3.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "кровать3.jpeg"; path = "../../../../кровать3.jpeg"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +95,9 @@
 				41A8B53A28E2179D008C77A4 /* дом3.jpeg */,
 				41A8B54028E21876008C77A4 /* дом5.jpeg */,
 				41A8B53F28E21875008C77A4 /* дом6.jpeg */,
+				41A8B55428E425C5008C77A4 /* кровать1.jpeg */,
+				41A8B55328E425C4008C77A4 /* кровать2.jpeg */,
+				41A8B55528E425C5008C77A4 /* кровать3.jpeg */,
 			);
 			path = UIKitDZ;
 			sourceTree = "<group>";
@@ -172,7 +181,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41A8B55628E425C5008C77A4 /* кровать2.jpeg in Resources */,
 				41A8B54228E21876008C77A4 /* дом5.jpeg in Resources */,
+				41A8B55728E425C5008C77A4 /* кровать1.jpeg in Resources */,
+				41A8B55828E425C5008C77A4 /* кровать3.jpeg in Resources */,
 				41A8B53D28E2179D008C77A4 /* дом3.jpeg in Resources */,
 				41A8B53E28E2179D008C77A4 /* дом2.jpeg in Resources */,
 				41A8B53C28E2179D008C77A4 /* дом1.jpeg in Resources */,
