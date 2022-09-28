@@ -116,7 +116,7 @@ class BillViewController: UIViewController {
         
         let message = """
 Скоро ваш заказ доставят
-Приятного аппетита
+Приятного аппетита!
 """
         
         let alertController = UIAlertController(title: "Заказ оплачен",
