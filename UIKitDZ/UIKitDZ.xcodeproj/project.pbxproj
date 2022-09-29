@@ -17,6 +17,14 @@
 		41A8B56028E46821008C77A4 /* PizzaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A8B55F28E46821008C77A4 /* PizzaViewController.swift */; };
 		41A8B56228E46CCC008C77A4 /* MakeOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A8B56128E46CCC008C77A4 /* MakeOrderViewController.swift */; };
 		41A8B56428E49B33008C77A4 /* BillViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A8B56328E49B32008C77A4 /* BillViewController.swift */; };
+		41A8B56928E58301008C77A4 /* pay.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 41A8B56628E58301008C77A4 /* pay.jpeg */; };
+		41A8B56E28E586BC008C77A4 /* маргарита.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 41A8B56C28E586BB008C77A4 /* маргарита.jpeg */; };
+		41A8B57428E59E7F008C77A4 /* FeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A8B57328E59E7F008C77A4 /* FeedbackViewController.swift */; };
+		41A8B57828E627B0008C77A4 /* бренд.png in Resources */ = {isa = PBXBuildFile; fileRef = 41A8B57728E627B0008C77A4 /* бренд.png */; };
+		41A8B57A28E63AE8008C77A4 /* pizza_menu.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 41A8B57928E63AE8008C77A4 /* pizza_menu.jpeg */; };
+		41A8B57C28E63AF0008C77A4 /* burger_button.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 41A8B57B28E63AEF008C77A4 /* burger_button.jpeg */; };
+		41A8B57E28E63B06008C77A4 /* pasta_button.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 41A8B57D28E63B06008C77A4 /* pasta_button.jpeg */; };
+		41A8B58D28E6419E008C77A4 /* soup_button.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 41A8B58C28E6419E008C77A4 /* soup_button.jpeg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +40,14 @@
 		41A8B55F28E46821008C77A4 /* PizzaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaViewController.swift; sourceTree = "<group>"; };
 		41A8B56128E46CCC008C77A4 /* MakeOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeOrderViewController.swift; sourceTree = "<group>"; };
 		41A8B56328E49B32008C77A4 /* BillViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillViewController.swift; sourceTree = "<group>"; };
+		41A8B56628E58301008C77A4 /* pay.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = pay.jpeg; path = ../../../../pay.jpeg; sourceTree = "<group>"; };
+		41A8B56C28E586BB008C77A4 /* маргарита.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "маргарита.jpeg"; path = "../../../../маргарита.jpeg"; sourceTree = "<group>"; };
+		41A8B57328E59E7F008C77A4 /* FeedbackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackViewController.swift; sourceTree = "<group>"; };
+		41A8B57728E627B0008C77A4 /* бренд.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "бренд.png"; path = "../../../../бренд.png"; sourceTree = "<group>"; };
+		41A8B57928E63AE8008C77A4 /* pizza_menu.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = pizza_menu.jpeg; path = ../../../../pizza_menu.jpeg; sourceTree = "<group>"; };
+		41A8B57B28E63AEF008C77A4 /* burger_button.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = burger_button.jpeg; path = ../../../../burger_button.jpeg; sourceTree = "<group>"; };
+		41A8B57D28E63B06008C77A4 /* pasta_button.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = pasta_button.jpeg; path = ../../../../pasta_button.jpeg; sourceTree = "<group>"; };
+		41A8B58C28E6419E008C77A4 /* soup_button.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = soup_button.jpeg; path = ../../../../soup_button.jpeg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,11 +83,17 @@
 				41A8B55E28E45723008C77A4 /* ViewController */,
 				418D877128DB8387006178FD /* AppDelegate.swift */,
 				418D877328DB8387006178FD /* SceneDelegate.swift */,
-				418D877528DB8387006178FD /* ViewController.swift */,
 				418D877728DB8387006178FD /* Main.storyboard */,
 				418D877A28DB838B006178FD /* Assets.xcassets */,
 				418D877C28DB838B006178FD /* LaunchScreen.storyboard */,
 				418D877F28DB838B006178FD /* Info.plist */,
+				41A8B56628E58301008C77A4 /* pay.jpeg */,
+				41A8B56C28E586BB008C77A4 /* маргарита.jpeg */,
+				41A8B57728E627B0008C77A4 /* бренд.png */,
+				41A8B57928E63AE8008C77A4 /* pizza_menu.jpeg */,
+				41A8B58C28E6419E008C77A4 /* soup_button.jpeg */,
+				41A8B57B28E63AEF008C77A4 /* burger_button.jpeg */,
+				41A8B57D28E63B06008C77A4 /* pasta_button.jpeg */,
 			);
 			path = UIKitDZ;
 			sourceTree = "<group>";
@@ -84,6 +106,7 @@
 				41A8B55F28E46821008C77A4 /* PizzaViewController.swift */,
 				41A8B56128E46CCC008C77A4 /* MakeOrderViewController.swift */,
 				41A8B56328E49B32008C77A4 /* BillViewController.swift */,
+				41A8B57328E59E7F008C77A4 /* FeedbackViewController.swift */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -147,7 +170,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41A8B57A28E63AE8008C77A4 /* pizza_menu.jpeg in Resources */,
+				41A8B58D28E6419E008C77A4 /* soup_button.jpeg in Resources */,
+				41A8B56928E58301008C77A4 /* pay.jpeg in Resources */,
 				418D877E28DB838B006178FD /* LaunchScreen.storyboard in Resources */,
+				41A8B56E28E586BC008C77A4 /* маргарита.jpeg in Resources */,
+				41A8B57828E627B0008C77A4 /* бренд.png in Resources */,
+				41A8B57C28E63AF0008C77A4 /* burger_button.jpeg in Resources */,
+				41A8B57E28E63B06008C77A4 /* pasta_button.jpeg in Resources */,
 				418D877B28DB838B006178FD /* Assets.xcassets in Resources */,
 				418D877928DB8387006178FD /* Main.storyboard in Resources */,
 			);
@@ -184,6 +214,7 @@
 				41A8B56028E46821008C77A4 /* PizzaViewController.swift in Sources */,
 				41A8B56428E49B33008C77A4 /* BillViewController.swift in Sources */,
 				41A8B56228E46CCC008C77A4 /* MakeOrderViewController.swift in Sources */,
+				41A8B57428E59E7F008C77A4 /* FeedbackViewController.swift in Sources */,
 				418D877628DB8387006178FD /* SignInViewController.swift in Sources */,
 				418D877228DB8387006178FD /* AppDelegate.swift in Sources */,
 				418D877428DB8387006178FD /* SceneDelegate.swift in Sources */,

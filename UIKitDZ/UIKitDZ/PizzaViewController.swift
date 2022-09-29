@@ -7,49 +7,53 @@
 
 import UIKit
 /// PizzaViewController - выбор пиццы
-class PizzaViewController: UIViewController {
+final class PizzaViewController: UIViewController {
     
-    let margaritaImageView: UIImageView = {
+    private let margaritaImageView: UIImageView = {
         let image = UIImageView()
         image.layer.cornerRadius = 10
         image.clipsToBounds = true
-        image.backgroundColor = .magenta
+        image.contentMode = .scaleAspectFill
+        image.image = UIImage(named: "маргарита")
         return image
     }()
     
-    let pepperoniImageView: UIImageView = {
+    private let pepperoniImageView: UIImageView = {
         let image = UIImageView()
         image.layer.cornerRadius = 10
         image.clipsToBounds = true
-        image.backgroundColor = .magenta
+        image.contentMode = .scaleAspectFill
+        image.image = UIImage(named: "пепперони")
         return image
     }()
     
-    let margaritaLabel: UILabel = {
+    private let margaritaLabel: UILabel = {
         let label = UILabel()
-        label.text = "Маргарита"
+        label.text = "Margarita"
         label.font = .systemFont(ofSize: 23)
         label.textAlignment = .left
         label.textColor = .black
         return label
     }()
     
-    let pepperoniLabel: UILabel = {
+    private let pepperoniLabel: UILabel = {
         let label = UILabel()
-        label.text = "Пепперони"
+        label.text = "Pepperoni"
         label.font = .systemFont(ofSize: 23)
         label.textAlignment = .left
         label.textColor = .black
         return label
     }()
     
-    let margatitaButton: UIButton = {
+    private let margatitaButton: UIButton = {
         let button = UIButton()
+        button.tag = 0
         return button
     }()
     
-    let pepperoniButton: UIButton = {
+    private let pepperoniButton: UIButton = {
         let button = UIButton()
+        button.tag = 1
         return button
     }()
 
@@ -59,17 +63,10 @@ class PizzaViewController: UIViewController {
         createUI()
     }
 
-    func createUI() {
+    private func createUI() {
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(
-            barButtonSystemItem: .add,
-            target: self,
-            action: nil)
-        
-        navigationItem.leftBarButtonItem = UIBarButtonItem(
-            barButtonSystemItem: .close,
-            target: self,
-            action: nil)
+        navigationController?.navigationBar.tintColor = UIColor.black
+        navigationController?.navigationBar.topItem?.title = ""
         
         view.backgroundColor = .systemYellow
         title = "Pizza"
@@ -97,19 +94,24 @@ class PizzaViewController: UIViewController {
         pepperoniButton.addTarget(self, action: #selector(orderButtonAction(sender: )), for: .touchUpInside)
     }
     
-    @objc func orderButtonAction(sender: UIButton) {
-        
-//        let makeOrderVC = MakeOrderViewController()
-//
-//        let navController = UINavigationController(rootViewController: makeOrderVC)
-//
-//        navController.modalPresentationStyle = .fullScreen
-//        show(makeOrderVC, sender: true)
+    @objc private func orderButtonAction(sender: UIButton) {
         
         let makeOrderVC = MakeOrderViewController()
         
         let navController = UINavigationController(rootViewController: makeOrderVC)
         navController.modalPresentationStyle = .formSheet
+        
+        switch sender.tag {
+        case 0:
+            makeOrderVC.pizzaNameLabel.text = margaritaLabel.text?.uppercased()
+            makeOrderVC.pizzaImageView.image = UIImage(named: "маргарита")
+        case 1:
+            makeOrderVC.pizzaNameLabel.text = pepperoniLabel.text?.uppercased()
+            makeOrderVC.pizzaImageView.image = UIImage(named: "пепперони")
+        default:
+            break
+        }
+        
         present(navController, animated: true)
     }
 }
