@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+/// BaseTabBarController - базовый TabBarController
 class BaseTabBarController: UITabBarController {
 
     override func viewDidLoad() {
