@@ -11,8 +11,23 @@ class BaseTabBarController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        view.backgroundColor = .green
-        viewControllers = [ ViewController(), ViewController()]
+        
+        viewControllers = [
+            createNavController(viewController: PageOneViewController(), titel: "Будильник", imageName: "house"),
+            createNavController(viewController: PageTwoViewController(), titel: "Секундомер", imageName: "bed.double")
+        ]
+    }
+    
+    private func createNavController(viewController: UIViewController,
+                                     titel: String,
+                                     imageName: String) -> UIViewController {
+        
+        let navController = UINavigationController(rootViewController: viewController)
+        
+        navController.navigationBar.prefersLargeTitles = true
+        
+        navController.tabBarItem.image = UIImage(systemName: imageName)
+        
+        return navController
     }
 }
