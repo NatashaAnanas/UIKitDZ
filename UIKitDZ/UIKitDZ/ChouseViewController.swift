@@ -14,7 +14,7 @@ final class ChouseViewController: UIViewController {
         button.setTitleColor(UIColor.black, for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: 30)
         button.layer.cornerRadius = 40
-        button.contentMode = .scaleAspectFill
+//        button.contentMode = .scaleAspectFill
         button.clipsToBounds = true
         button.setImage(UIImage(named: "pizza_menu"), for: .normal)
         return button
@@ -25,7 +25,6 @@ final class ChouseViewController: UIViewController {
         button.setTitleColor(UIColor.black, for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: 30)
         button.layer.cornerRadius = 40
-        button.contentMode = .scaleAspectFill
         button.clipsToBounds = true
         button.setImage(UIImage(named: "burger_button"), for: .normal)
         return button
@@ -36,7 +35,6 @@ final class ChouseViewController: UIViewController {
         button.setTitleColor(UIColor.black, for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: 30)
         button.layer.cornerRadius = 40
-        button.contentMode = .scaleAspectFill
         button.clipsToBounds = true
         button.setImage(UIImage(named: "pasta_button"), for: .normal)
         return button
@@ -47,7 +45,6 @@ final class ChouseViewController: UIViewController {
         button.setTitleColor(UIColor.black, for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: 30)
         button.layer.cornerRadius = 40
-        button.contentMode = .scaleAspectFill
         button.clipsToBounds = true
         button.setImage(UIImage(named: "soup_button"), for: .normal)
         return button
@@ -65,19 +62,19 @@ final class ChouseViewController: UIViewController {
         
         view.backgroundColor = .systemYellow
         
-        pizzaButton.frame = CGRect(x: 0, y: 100, width: 340, height: 130)
+        pizzaButton.frame = CGRect(x: 0, y: 100, width: 300, height: 130)
         pizzaButton.center.x = view.center.x
         view.addSubview(pizzaButton)
         
-        burgerButton.frame = CGRect(x: 0, y: 400, width: 340, height: 130)
+        burgerButton.frame = CGRect(x: 0, y: 400, width: 300, height: 130)
         burgerButton.center.x = view.center.x
         view.addSubview(burgerButton)
         
-        pastaButton.frame = CGRect(x: 0, y: 250, width: 340, height: 130)
+        pastaButton.frame = CGRect(x: 0, y: 250, width: 300, height: 130)
         pastaButton.center.x = view.center.x
         view.addSubview(pastaButton)
         
-        soupButton.frame = CGRect(x: 0, y: 550, width: 340, height: 130)
+        soupButton.frame = CGRect(x: 0, y: 550, width: 300, height: 130)
         soupButton.center.x = view.center.x
         view.addSubview(soupButton)
         
