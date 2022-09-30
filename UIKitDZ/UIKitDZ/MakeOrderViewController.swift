@@ -19,7 +19,7 @@ final class MakeOrderViewController: UIViewController {
     
     private let cheesLabel: UILabel = {
         let label = UILabel()
-        label.text = "Сыр моцарелла"
+        label.text = "Моцарелла"
         label.textColor = .black
         label.font = .systemFont(ofSize: 20)
         label.textAlignment = .left
@@ -149,6 +149,21 @@ final class MakeOrderViewController: UIViewController {
         let billVC = BillViewController()
         
         let navController = UINavigationController(rootViewController: billVC)
+        
+        // через guard не работало
+    
+        if cheesSwitch.isOn {
+        billVC.ingeedientsrLabel.text? += "\(cheesLabel.text ?? "Моцарелла ") "
+        }
+        if hamSwitch.isOn {
+        billVC.ingeedientsrLabel.text? += "\(hamLabel.text ?? "Ветчина ") "
+        }
+        if mushroomsSwitch.isOn {
+        billVC.ingeedientsrLabel.text? += "\(mushroomsLabel.text ?? "Грибы ") "
+        }
+        if oliveSwitch.isOn {
+        billVC.ingeedientsrLabel.text? += "\(oliveLabel.text ?? "Оливки ") "
+        }
         
         billVC.pizzaImageView.image = pizzaImageView.image
         billVC.pizzaLabel.text = pizzaNameLabel.text?.uppercased()

@@ -26,9 +26,9 @@ final class BillViewController: UIViewController {
         return label
     }()
     
-    private let ingeedientsrLabel: UILabel = {
+    let ingeedientsrLabel: UILabel = {
         let label = UILabel()
-        label.text = "Ветчина, грибы"
+        label.text = ""
         label.textAlignment = .left
         label.textColor = .gray
         label.font = .systemFont(ofSize: 18)
@@ -103,7 +103,7 @@ final class BillViewController: UIViewController {
         pizzaLabel.frame = CGRect(x: 60, y: 160, width: 150, height: 40)
         view.addSubview(pizzaLabel)
         
-        ingeedientsrLabel.frame = CGRect(x: 65, y: 190, width: 150, height: 40)
+        ingeedientsrLabel.frame = CGRect(x: 65, y: 190, width: 310, height: 40)
         view.addSubview(ingeedientsrLabel)
         
         cartLabel.frame = CGRect(x: 40, y: 620, width: 200, height: 40)
