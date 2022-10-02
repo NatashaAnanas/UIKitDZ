@@ -27,7 +27,7 @@ extension PageOneViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         switch pickerView.tag {
         case 0:
-            return colors[row]
+            return colors[row].0
         case 1:
             return nums[row]
         default:
@@ -37,10 +37,10 @@ extension PageOneViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         switch pickerView.tag {
-        case 0: break
-//            return myLabel.textColor = .
+        case 0:
+            return myLabel.textColor = colors[row].1
         case 1:
-            return myLabel.font = .systemFont(ofSize: CGFloat(Int(nums[row]) ?? 0))
+            return myLabel.numberOfLines = Int(nums[row]) ?? 0
         default:
             break
         }

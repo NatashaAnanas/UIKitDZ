@@ -7,7 +7,7 @@
 
 import UIKit
 /// Страница с кнопкой
-class PageOneViewController: UIViewController {
+class PageOneViewController: UIViewController, UITextFieldDelegate {
     
     let startButton: UIButton = {
         let button = UIButton()
@@ -64,10 +64,31 @@ class PageOneViewController: UIViewController {
     
     let sizeSlider: UISlider = {
         let slider = UISlider()
+        slider.minimumValue = 0
+        slider.maximumValue = 64
+        slider.minimumTrackTintColor = .green
         return slider
     }()
     
-    let colors = ["white", "red", "green", "blue", "yellow", "orange", "black", "purple", "gray"]
+    let colorTextField: UITextField = {
+        let textField = UITextField()
+        return textField
+    }()
+    
+    let sizeTextField: UITextField = {
+        let textField = UITextField()
+        return textField
+    }()
+    
+    let colors: [(String, UIColor)] = [("white", UIColor.white),
+                                          ("red", UIColor.red),
+                                          ("green", UIColor.green),
+                                          ("blue", UIColor.blue),
+                                          ("yellow", UIColor.yellow),
+                                          ("orange", UIColor.orange),
+                                          ("black", UIColor.black),
+                                          ("purple", UIColor.purple),
+                                          ("gray", UIColor.gray)]
     
     let nums = ["0", "1", "2", "3", "4"]
 
@@ -81,31 +102,56 @@ class PageOneViewController: UIViewController {
         
         view.backgroundColor = .systemMint
         
-        //        navigationItem.rightBarButtonItem?.buttonGroup.
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add,
+                                                            target: self,
+                                                            action: #selector(plusButtonAction(sender: )))
         
         startButton.frame = CGRect(x: 0, y: 0, width: 150, height: 150)
         startButton.center = view.center
         view.addSubview(startButton)
         
         colorButton.frame = CGRect(x: 70, y: 150, width: 100, height: 100)
-        view.addSubview(colorButton)
         
         sizeButton.frame = CGRect(x: 260, y: 150, width: 100, height: 100)
-        view.addSubview(sizeButton)
         
-        myLabel.frame = CGRect(x: 0, y: 530, width: 350, height: 130)
+        myLabel.frame = CGRect(x: 0, y: 530, width: 350, height: 200)
         myLabel.center.x = view.center.x
         view.addSubview(myLabel)
-        
-        startButton.addTarget(self,
-                              action: #selector(plusButtonAction(sender: )),
-                              for: .touchUpInside)
         
         colorPickerView.dataSource = self
         colorPickerView.delegate = self
         
         numberLinesPickerView.dataSource = self
         numberLinesPickerView.delegate = self
+        
+        colorTextField.delegate = self
+        colorTextField.inputView = colorPickerView
+        colorTextField.isHidden = true
+        view.addSubview(colorTextField)
+        
+        sizeTextField.delegate = self
+        sizeTextField.inputView = numberLinesPickerView
+        sizeTextField.isHidden = true
+        view.addSubview(sizeTextField)
+        
+        sizeSlider.frame = CGRect(x: 0, y: 300, width: 300, height: 40)
+        sizeSlider.center.x = view.center.x
+        
+        startButton.addTarget(self,
+                              action: #selector(startButtonAction(sender: )),
+                              for: .touchUpInside)
+        
+        colorButton.addTarget(self,
+                              action: #selector(colorButtonAction(sender: )),
+                              for: .touchUpInside)
+        
+        sizeButton.addTarget(self,
+                             action: #selector(sizeButtonAction(sender: )),
+                             for: .touchUpInside)
+        
+        sizeSlider.addTarget(self,
+                             action: #selector(sizeSliderAction(sender: )),
+                             for: .allEvents)
     }
     
     func alert() {
@@ -124,7 +170,30 @@ class PageOneViewController: UIViewController {
         present(alertController, animated: true)
     }
     
+    @objc func startButtonAction(sender: UIButton ) {
+        view.addSubview(sizeButton)
+        view.addSubview(colorButton)
+        view.addSubview(sizeSlider)
+
+    }
+    
     @objc func plusButtonAction(sender: UIButton ) {
         alert()
+    }
+    
+    @objc func colorButtonAction(sender: UIButton) {
+        colorTextField.becomeFirstResponder()
+        print("hello")
+    }
+    
+    @objc func sizeButtonAction(sender: UIButton) {
+        sizeTextField.becomeFirstResponder()
+        print("hello1")
+    }
+    @objc func sizeSliderAction(sender: UISlider) {
+        
+        print(1)
+        print(sender.value)
+        myLabel.font = .systemFont(ofSize: CGFloat(sender.value))
     }
 }
