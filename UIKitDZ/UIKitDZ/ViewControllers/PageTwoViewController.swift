@@ -6,8 +6,8 @@
 //
 
 import UIKit
-/// ViewController
-class PageTwoViewController: UIViewController {
+/// Вторая страница TabBarController
+final class PageTwoViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

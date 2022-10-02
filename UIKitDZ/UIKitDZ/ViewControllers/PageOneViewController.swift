@@ -6,19 +6,21 @@
 //
 
 import UIKit
-/// Страница с кнопкой
-class PageOneViewController: UIViewController, UITextFieldDelegate {
+/// Страница с настройками
+final class PageOneViewController: UIViewController, UITextFieldDelegate {
     
-    let startButton: UIButton = {
+    private let startButton: UIButton = {
         let button = UIButton()
         button.backgroundColor = .systemPurple
         button.setTitle("Start", for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: 20)
         button.layer.cornerRadius = 75
+        button.layer.borderWidth = 4
+        button.layer.borderColor = UIColor.tertiaryLabel.cgColor
         return button
     }()
     
-    let colorButton: UIButton = {
+    private let colorButton: UIButton = {
         let button = UIButton()
         button.backgroundColor = .systemYellow
         button.setTitle("Color", for: .normal)
@@ -29,10 +31,10 @@ class PageOneViewController: UIViewController, UITextFieldDelegate {
         return button
     }()
     
-    let sizeButton: UIButton = {
+    private let sizeButton: UIButton = {
         let button = UIButton()
         button.backgroundColor = .systemOrange
-        button.setTitle("Size", for: .normal)
+        button.setTitle("Line", for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: 20)
         button.layer.cornerRadius = 50
         button.layer.borderWidth = 3
@@ -50,19 +52,19 @@ class PageOneViewController: UIViewController, UITextFieldDelegate {
         return label
     }()
     
-    let colorPickerView: UIPickerView = {
+    private let colorPickerView: UIPickerView = {
         let picker = UIPickerView()
         picker.tag = 0
         return picker
     }()
     
-    let numberLinesPickerView: UIPickerView = {
+    private let numberLinesPickerView: UIPickerView = {
         let picker = UIPickerView()
         picker.tag = 1
         return picker
     }()
     
-    let sizeSlider: UISlider = {
+    private let sizeSlider: UISlider = {
         let slider = UISlider()
         slider.minimumValue = 0
         slider.maximumValue = 64
@@ -70,12 +72,12 @@ class PageOneViewController: UIViewController, UITextFieldDelegate {
         return slider
     }()
     
-    let colorTextField: UITextField = {
+    private let colorTextField: UITextField = {
         let textField = UITextField()
         return textField
     }()
     
-    let sizeTextField: UITextField = {
+    private let sizeTextField: UITextField = {
         let textField = UITextField()
         return textField
     }()
@@ -96,34 +98,40 @@ class PageOneViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
 
         createUI()
+        createPicker()
     }
     
     private func createUI() {
         
         view.backgroundColor = .systemMint
         
+        navigationController?.navigationBar.tintColor = .black
+        
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add,
                                                             target: self,
                                                             action: #selector(plusButtonAction(sender: )))
-        
+        // MARK: - Create UIButton
         startButton.frame = CGRect(x: 0, y: 0, width: 150, height: 150)
         startButton.center = view.center
         view.addSubview(startButton)
         
-        colorButton.frame = CGRect(x: 70, y: 150, width: 100, height: 100)
+        colorButton.frame = CGRect(x: 70, y: 600, width: 100, height: 100)
         
-        sizeButton.frame = CGRect(x: 260, y: 150, width: 100, height: 100)
+        sizeButton.frame = CGRect(x: 250, y: 600, width: 100, height: 100)
         
-        myLabel.frame = CGRect(x: 0, y: 530, width: 350, height: 200)
+        // MARK: - Create UILabel
+        myLabel.frame = CGRect(x: 0, y: 70, width: 350, height: 200)
         myLabel.center.x = view.center.x
         view.addSubview(myLabel)
         
+        // MARK: - Create UIPickerView
         colorPickerView.dataSource = self
         colorPickerView.delegate = self
         
         numberLinesPickerView.dataSource = self
         numberLinesPickerView.delegate = self
         
+        // MARK: - Create UITextField
         colorTextField.delegate = self
         colorTextField.inputView = colorPickerView
         colorTextField.isHidden = true
@@ -134,9 +142,11 @@ class PageOneViewController: UIViewController, UITextFieldDelegate {
         sizeTextField.isHidden = true
         view.addSubview(sizeTextField)
         
-        sizeSlider.frame = CGRect(x: 0, y: 300, width: 300, height: 40)
+        // MARK: - Create UISlider
+        sizeSlider.frame = CGRect(x: 0, y: 310, width: 300, height: 40)
         sizeSlider.center.x = view.center.x
         
+        // MARK: - Create Actions
         startButton.addTarget(self,
                               action: #selector(startButtonAction(sender: )),
                               for: .touchUpInside)
@@ -154,7 +164,7 @@ class PageOneViewController: UIViewController, UITextFieldDelegate {
                              for: .allEvents)
     }
     
-    func alert() {
+    private func alert() {
         
         let alertController = UIAlertController(title: "Введите слово", message: "", preferredStyle: .alert)
         
@@ -170,30 +180,55 @@ class PageOneViewController: UIViewController, UITextFieldDelegate {
         present(alertController, animated: true)
     }
     
-    @objc func startButtonAction(sender: UIButton ) {
+    @objc private func startButtonAction(sender: UIButton ) {
         view.addSubview(sizeButton)
         view.addSubview(colorButton)
         view.addSubview(sizeSlider)
 
     }
     
-    @objc func plusButtonAction(sender: UIButton ) {
+    @objc private func plusButtonAction(sender: UIButton ) {
         alert()
     }
     
-    @objc func colorButtonAction(sender: UIButton) {
+    @objc private func colorButtonAction(sender: UIButton) {
         colorTextField.becomeFirstResponder()
-        print("hello")
     }
     
-    @objc func sizeButtonAction(sender: UIButton) {
+    @objc private func sizeButtonAction(sender: UIButton) {
         sizeTextField.becomeFirstResponder()
-        print("hello1")
     }
-    @objc func sizeSliderAction(sender: UISlider) {
+    @objc private func sizeSliderAction(sender: UISlider) {
         
         print(1)
         print(sender.value)
         myLabel.font = .systemFont(ofSize: CGFloat(sender.value))
+    }
+    
+    // MARK: - Create UIPickerView
+    
+    private func createPicker() {
+        
+        let toolBar = UIToolbar()
+        toolBar.sizeToFit()
+        toolBar.barTintColor = .systemMint
+        toolBar.tintColor = .black
+        
+        let doneButton = UIBarButtonItem(barButtonSystemItem: .done,
+                                         target: self,
+                                         action: #selector(doneAction))
+        let space = UIBarButtonItem(barButtonSystemItem: .flexibleSpace,
+                                    target: nil,
+                                    action: nil)
+        
+        toolBar.setItems([space, doneButton], animated: true)
+        
+        sizeTextField.inputAccessoryView = toolBar
+        colorTextField.inputAccessoryView = toolBar
+        
+    }
+    
+    @objc private func doneAction() {
+        view.endEditing(true)
     }
 }

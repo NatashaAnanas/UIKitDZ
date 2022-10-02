@@ -6,15 +6,15 @@
 //
 
 import UIKit
-/// - Бзовый контроллер
-class BaseTabBarController: UITabBarController {
+/// - Бзовый TabBar контроллер
+final class BaseTabBarController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         viewControllers = [
-            createNavController(viewController: PageOneViewController(), titel: "Будильник", imageName: "house"),
-            createNavController(viewController: PageTwoViewController(), titel: "Секундомер", imageName: "bed.double")
+            createNavController(viewController: PageOneViewController(), titel: "Будильник", imageName: "swift"),
+            createNavController(viewController: PageTwoViewController(), titel: "Секундомер", imageName: "bolt")
         ]
     }
     
@@ -27,6 +27,8 @@ class BaseTabBarController: UITabBarController {
         navController.navigationBar.prefersLargeTitles = true
         
         navController.tabBarItem.image = UIImage(systemName: imageName)
+
+        navController.tabBarItem.image?.withTintColor(.black)
         
         return navController
     }
