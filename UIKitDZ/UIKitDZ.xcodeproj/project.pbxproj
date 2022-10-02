@@ -14,6 +14,11 @@
 		418D877B28DB838B006178FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 418D877A28DB838B006178FD /* Assets.xcassets */; };
 		418D877E28DB838B006178FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 418D877C28DB838B006178FD /* LaunchScreen.storyboard */; };
 		41A8B59028E6ED4C008C77A4 /* BaseTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A8B58F28E6ED4C008C77A4 /* BaseTabBarController.swift */; };
+		41A8B59A28E9DD81008C77A4 /* АlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A8B59928E9DD81008C77A4 /* АlarmViewController.swift */; };
+		41A8B59C28E9DDD1008C77A4 /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A8B59B28E9DDD0008C77A4 /* TimerViewController.swift */; };
+		41A8B59E28E9DE63008C77A4 /* StopwatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A8B59D28E9DE63008C77A4 /* StopwatchViewController.swift */; };
+		41A8B5A128E9E5BE008C77A4 /* Extention+UIPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A8B5A028E9E5BD008C77A4 /* Extention+UIPickerView.swift */; };
+		41A8B5A328EA20BE008C77A4 /* ClockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A8B5A228EA20BE008C77A4 /* ClockViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +31,11 @@
 		418D877D28DB838B006178FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		418D877F28DB838B006178FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		41A8B58F28E6ED4C008C77A4 /* BaseTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTabBarController.swift; sourceTree = "<group>"; };
+		41A8B59928E9DD81008C77A4 /* АlarmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "АlarmViewController.swift"; sourceTree = "<group>"; };
+		41A8B59B28E9DDD0008C77A4 /* TimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
+		41A8B59D28E9DE63008C77A4 /* StopwatchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopwatchViewController.swift; sourceTree = "<group>"; };
+		41A8B5A028E9E5BD008C77A4 /* Extention+UIPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extention+UIPickerView.swift"; sourceTree = "<group>"; };
+		41A8B5A228EA20BE008C77A4 /* ClockViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +68,7 @@
 		418D877028DB8387006178FD /* UIKitDZ */ = {
 			isa = PBXGroup;
 			children = (
+				41A8B59F28E9E597008C77A4 /* Extention */,
 				41A8B58E28E6ED04008C77A4 /* ViewControllers */,
 				418D877128DB8387006178FD /* AppDelegate.swift */,
 				418D877328DB8387006178FD /* SceneDelegate.swift */,
@@ -74,8 +85,20 @@
 			isa = PBXGroup;
 			children = (
 				41A8B58F28E6ED4C008C77A4 /* BaseTabBarController.swift */,
+				41A8B59D28E9DE63008C77A4 /* StopwatchViewController.swift */,
+				41A8B59928E9DD81008C77A4 /* АlarmViewController.swift */,
+				41A8B59B28E9DDD0008C77A4 /* TimerViewController.swift */,
+				41A8B5A228EA20BE008C77A4 /* ClockViewController.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		41A8B59F28E9E597008C77A4 /* Extention */ = {
+			isa = PBXGroup;
+			children = (
+				41A8B5A028E9E5BD008C77A4 /* Extention+UIPickerView.swift */,
+			);
+			path = Extention;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -171,10 +194,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41A8B5A328EA20BE008C77A4 /* ClockViewController.swift in Sources */,
 				41A8B59028E6ED4C008C77A4 /* BaseTabBarController.swift in Sources */,
 				418D877628DB8387006178FD /* ViewController.swift in Sources */,
+				41A8B59A28E9DD81008C77A4 /* АlarmViewController.swift in Sources */,
 				418D877228DB8387006178FD /* AppDelegate.swift in Sources */,
+				41A8B59C28E9DDD1008C77A4 /* TimerViewController.swift in Sources */,
+				41A8B59E28E9DE63008C77A4 /* StopwatchViewController.swift in Sources */,
 				418D877428DB8387006178FD /* SceneDelegate.swift in Sources */,
+				41A8B5A128E9E5BE008C77A4 /* Extention+UIPickerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
