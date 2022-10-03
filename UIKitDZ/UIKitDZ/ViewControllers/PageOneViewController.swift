@@ -83,20 +83,20 @@ final class PageOneViewController: UIViewController, UITextFieldDelegate {
     }()
     
     let colors: [(String, UIColor)] = [("white", UIColor.white),
-                                          ("red", UIColor.red),
-                                          ("green", UIColor.green),
-                                          ("blue", UIColor.blue),
-                                          ("yellow", UIColor.yellow),
-                                          ("orange", UIColor.orange),
-                                          ("black", UIColor.black),
-                                          ("purple", UIColor.purple),
-                                          ("gray", UIColor.gray)]
+                                       ("red", UIColor.red),
+                                       ("green", UIColor.green),
+                                       ("blue", UIColor.blue),
+                                       ("yellow", UIColor.yellow),
+                                       ("orange", UIColor.orange),
+                                       ("black", UIColor.black),
+                                       ("purple", UIColor.purple),
+                                       ("gray", UIColor.gray)]
     
     let nums = ["0", "1", "2", "3", "4"]
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         createUI()
         createPicker()
     }
@@ -164,6 +164,7 @@ final class PageOneViewController: UIViewController, UITextFieldDelegate {
                              for: .allEvents)
     }
     
+    // MARK: - Create Alert
     private func alert() {
         
         let alertController = UIAlertController(title: "Введите слово", message: "", preferredStyle: .alert)
@@ -178,31 +179,6 @@ final class PageOneViewController: UIViewController, UITextFieldDelegate {
         alertController.addAction(alertAction)
         
         present(alertController, animated: true)
-    }
-    
-    @objc private func startButtonAction(sender: UIButton ) {
-        view.addSubview(sizeButton)
-        view.addSubview(colorButton)
-        view.addSubview(sizeSlider)
-
-    }
-    
-    @objc private func plusButtonAction(sender: UIButton ) {
-        alert()
-    }
-    
-    @objc private func colorButtonAction(sender: UIButton) {
-        colorTextField.becomeFirstResponder()
-    }
-    
-    @objc private func sizeButtonAction(sender: UIButton) {
-        sizeTextField.becomeFirstResponder()
-    }
-    @objc private func sizeSliderAction(sender: UISlider) {
-        
-        print(1)
-        print(sender.value)
-        myLabel.font = .systemFont(ofSize: CGFloat(sender.value))
     }
     
     // MARK: - Create UIPickerView
@@ -225,7 +201,29 @@ final class PageOneViewController: UIViewController, UITextFieldDelegate {
         
         sizeTextField.inputAccessoryView = toolBar
         colorTextField.inputAccessoryView = toolBar
+    }
+    
+    @objc private func startButtonAction(sender: UIButton ) {
+        view.addSubview(sizeButton)
+        view.addSubview(colorButton)
+        view.addSubview(sizeSlider)
         
+    }
+    
+    @objc private func plusButtonAction(sender: UIButton ) {
+        alert()
+    }
+    
+    @objc private func colorButtonAction(sender: UIButton) {
+        colorTextField.becomeFirstResponder()
+    }
+    
+    @objc private func sizeButtonAction(sender: UIButton) {
+        sizeTextField.becomeFirstResponder()
+    }
+    
+    @objc private func sizeSliderAction(sender: UISlider) {
+        myLabel.font = .systemFont(ofSize: CGFloat(sender.value))
     }
     
     @objc private func doneAction() {

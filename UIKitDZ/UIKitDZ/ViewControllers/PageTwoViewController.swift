@@ -12,6 +12,10 @@ final class PageTwoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        createUI()
+    }
+    
+    private func createUI() {
         view.backgroundColor = .yellow
     }
 }
