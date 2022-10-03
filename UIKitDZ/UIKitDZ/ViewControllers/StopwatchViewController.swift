@@ -6,28 +6,10 @@
 //
 
 import UIKit
-/// Секундомер
-class StopwatchViewController: UIViewController {
+/// Экран секундомер
+final class StopwatchViewController: UIViewController {
     
-    var valueStart = false
-    let indentifire = "MyCell"
-    var lapTimeArray: [String] = []
-    var timer = Timer()
-    var isTimerRunning = false
-    var counter = 0.00
-    
-    private var timeLabel: UILabel = {
-        
-        let label = UILabel()
-        label.text = "00:00.00"
-        label.font = .systemFont(ofSize: 88)
-        label.textColor = .white
-        label.translatesAutoresizingMaskIntoConstraints = false
-        
-        return label
-    }()
-    
-    private var startButton: UIButton = {
+    let startButton: UIButton = {
         
         let button = UIButton()
         button.setTitle("Старт", for: .normal)
@@ -37,11 +19,10 @@ class StopwatchViewController: UIViewController {
         button.layer.borderColor = UIColor.green.cgColor
         button.translatesAutoresizingMaskIntoConstraints = false
         button.backgroundColor = .tertiaryLabel
-       
         return button
     }()
     
-    private var circleButton: UIButton = {
+    let circleButton: UIButton = {
         
         let button = UIButton()
         button.setTitle("Круг", for: .normal)
@@ -52,38 +33,54 @@ class StopwatchViewController: UIViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.backgroundColor = .tertiaryLabel
         button.isEnabled = false
-       
         return button
     }()
     
-    private let tableView: UITableView = {
+    let timeTableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
-    
         return tableView
     }()
-
+    
+    let indentifire = "MyCell"
+    
+    var timeLabel: UILabel = {
+        
+        let label = UILabel()
+        label.text = "00:00.00"
+        label.font = .systemFont(ofSize: 88)
+        label.textColor = .white
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    var lapTime: [String] = []
+    
+    private var timer = Timer()
+    
+    private var isTimerRunning = false
+    
+    private var counter = 0.00
+    
+    private var valueStart = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupViews()
         addConstraints()
-        setupDelegate()
-        createTable()
-        startButton.addTarget(self, action: #selector(startButtonAction(sender:)), for: .touchUpInside)
-        circleButton.addTarget(self, action: #selector(circleButtonAction(sender:)), for: .touchUpInside)
-
+        createTableView()
     }
     
     // MARK: - Create startButtonAction
     
-    @objc func startButtonAction (sender: UIButton) {
-        print(lapTimeArray)
-        if valueStart == false {
+    @objc private func startButtonAction(sender: UIButton) {
+        
+        guard valueStart else {
             
             timer = Timer.scheduledTimer(timeInterval: 0.01,
                                          target: self,
-                                         selector: #selector(runTimer),
+                                         selector: #selector(runTimerAction),
                                          userInfo: nil,
                                          repeats: true)
             
@@ -94,31 +91,31 @@ class StopwatchViewController: UIViewController {
             circleButton.isEnabled = true
             circleButton.setTitleColor(UIColor.white, for: .normal)
             circleButton.setTitle("Круг", for: .normal)
+            
             valueStart = true
             
-        } else if valueStart == true {
-            sender.setTitle("Старт", for: .normal)
-            sender.setTitleColor(UIColor.green, for: .normal)
-            sender.layer.borderColor = UIColor.green.cgColor
-            
-            timer.invalidate()
-            
-            circleButton.isEnabled = true
-            circleButton.setTitle("Сброс", for: .normal)
-            
-            valueStart = false
+            return
         }
         
+        sender.setTitle("Старт", for: .normal)
+        sender.setTitleColor(UIColor.green, for: .normal)
+        sender.layer.borderColor = UIColor.green.cgColor
+        
+        timer.invalidate()
+        
+        circleButton.isEnabled = true
+        circleButton.setTitle("Сброс", for: .normal)
+        
+        valueStart = false
     }
     
-    @objc func runTimer () {
+    @objc private func runTimerAction() {
         
         counter += 0.01
         timeLabel.text = "\(counter)"
         
         let flooredCounter = Int(floor(counter))
         
-//        let deciSecond = String(format: "%02d", )
         let minute = (flooredCounter % 3600) / 60
         var minuteString = "\(minute)"
         if minute < 10 {
@@ -138,121 +135,44 @@ class StopwatchViewController: UIViewController {
     }
     
     // MARK: - Create circleButtonAction
-    @objc func circleButtonAction (sender: UIButton) {
+    
+    @objc private func circleButtonAction(sender: UIButton) {
         
-        // кнопка сброс
-        if valueStart == false {
-            print(valueStart)
-        timeLabel.text = "00:00.00"
-            lapTimeArray.removeAll()
-            self.tableView.reloadData()
-            self.timer.invalidate()
-        counter = 0.00
-            
-        } else {
-            lapTimeArray.append("\(timeLabel.text ?? "hi")")
-            tableView.reloadData()
-            
+        guard valueStart else {
+            timeLabel.text = "00:00.00"
+            lapTime.removeAll()
+            timeTableView.reloadData()
+            timer.invalidate()
+            counter = 0.00
+            return
         }
         
-    }
-    // MARK: - setup Delegate
-    private func setupDelegate () {
-        tableView.delegate = self
-        tableView.dataSource = self
+        lapTime.append("\(timeLabel.text ?? "00")")
+        timeTableView.reloadData()
     }
     
-    // MARK: - create tableView
+    // MARK: - Create tableView
     
-    func createTable () {
-      
-        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: indentifire)
-        tableView.backgroundColor = .black
-
+    func createTableView() {
+        
+        timeTableView.delegate = self
+        timeTableView.dataSource = self
+        
+        timeTableView.register(UITableViewCell.self, forCellReuseIdentifier: indentifire)
+        timeTableView.backgroundColor = .black
     }
-    // MARK: - setup Views
+    // MARK: - Setup Views
     
     private func setupViews() {
-
+        
         view.backgroundColor = .black
-        let viewsArray = [startButton, circleButton, timeLabel, tableView]
-        for UI in viewsArray {
-            self.view.addSubview(UI)
+        
+        let viewsArray = [startButton, circleButton, timeLabel, timeTableView]
+        for ui in viewsArray {
+            view.addSubview(ui)
         }
-    }
-}
-
-// MARK: - Set Constraints
-extension StopwatchViewController {
-    
-    private func addConstraints () {
         
-        NSLayoutConstraint.activate([
-           tableView.topAnchor.constraint(equalTo: startButton.bottomAnchor, constant: 30),
-           tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
-           tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
-           tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0)
-     
-           ])
-      
-        NSLayoutConstraint.activate([
-           timeLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 200),
-           timeLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-           timeLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-           timeLabel.widthAnchor.constraint(equalTo: view.widthAnchor)
-     
-           ])
-        
-         NSLayoutConstraint.activate([
-            circleButton.topAnchor.constraint(equalTo: timeLabel.bottomAnchor, constant: 100),
-            circleButton.widthAnchor.constraint(equalToConstant: 110),
-            circleButton.heightAnchor.constraint(equalToConstant: 110),
-            circleButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20)
-         ])
-         
-         NSLayoutConstraint.activate([
-            startButton.topAnchor.constraint(equalTo: timeLabel.bottomAnchor, constant: 100),
-            startButton.widthAnchor.constraint(equalToConstant: 110),
-            startButton.heightAnchor.constraint(equalToConstant: 110),
-            startButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20)
-         ])
-
-    }
-}
-
-// MARK: - UITableViewDataSource
-
-extension StopwatchViewController: UITableViewDataSource {
-
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-  
-        return lapTimeArray.count
-    }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
-//        let cell = tableView.dequeueReusableCell(withIdentifier: self.indentifire)
-        let cellText = "Круг"
-        let space = "                                                        "
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: self.indentifire, for: indexPath)
-        cell.textLabel?.text =
-        "\(cellText) \(indexPath.row + 1)\(space)\(lapTimeArray[indexPath.row])"
-        cell.backgroundColor = .black
-        cell.textLabel?.textColor = .white
-    
-//        let cellTimeLabel = UILabel()
-//        cellTimeLabel.text = "\(lapTimeArray[indexPath.row])"
-//        cellTimeLabel.textColor = .white
-//        cellTimeLabel.frame = CGRect(x: 320, y: 10, width: 100, height: 40)
-//        cell.addSubview(cellTimeLabel)
-    
-        return cell
-    }
-}
-extension StopwatchViewController: UITableViewDelegate {
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        60.0
+        startButton.addTarget(self, action: #selector(startButtonAction(sender:)), for: .touchUpInside)
+        circleButton.addTarget(self, action: #selector(circleButtonAction(sender:)), for: .touchUpInside)
     }
 }

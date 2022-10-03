@@ -6,8 +6,8 @@
 //
 
 import UIKit
-/// Таймер контроллер
-class TimerViewController: UIViewController {
+/// Экран таймер 
+final class TimerViewController: UIViewController {
 
     @IBOutlet weak var cancellButton: UIButton!
     @IBOutlet weak var startButton: UIButton!
@@ -22,7 +22,6 @@ class TimerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         createUI()
     }
     
