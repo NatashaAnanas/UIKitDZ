@@ -6,8 +6,38 @@
 //
 //
 import UIKit
-/// HouseViewController - контроллер выбора домов
-class HouseViewController: UIViewController {
+/// Kонтроллер выбора домов
+final class HouseViewController: UIViewController {
+
+    private enum Constants {
+        static let descriptionHouseArray = [  """
+    Cовременная комфортабельная загородная резиденция, располагающая всем необходимым для работы и отдыха.
+    Два этажа сообщаются между собой лестничными пролетами и лифтом, кровля эксплуатируемая.
+    Планировка первого этажа условно разделена на две половины.
+    Одно крыло занимает бассейн с хаммамом, душевыми, сауной, тренажерным залом.
+""",
+    """
+    Проект двухэтажного дома в стиле hi-tech создавался для большой гостеприимной семьи.
+    Площадь дома разбита на четыре спальни, дополненные гардеробными и санузлами,
+несколько кабинетов, бассейн, сауну, хамам, парикмахерскую, комнаты персонала, тренажерный зал,
+а также две просторные террасы.
+    На территории плоской крыши в летний период можно организовать солярий на открытом воздухе.
+""",
+                                           
+    """
+    Облик этого загородного дома в стиле кубизм предельно прост, лаконичен и нейтрален.
+    Главной архитектурной особенностью является панорамное остекление – прием,
+    который задает настроение и фасаду, и интерьеру:
+    визуально жилое пространство становится не только светлее, но и больше, масштабнее.
+    Особое место в доме занимает зона отдыха – бассейн с панорамным остеклением и сауна.
+
+Просторная гостиная одинаково хорошо подходит и для уютных семейных вечеров,
+ и для шумных праздников и встреч с друзьями.
+"""
+        ]
+    }
+    
+    // MARK: - Private Properties
     
     private let chouseButton: UIButton = {
         let button = UIButton(type: .custom)
@@ -53,7 +83,7 @@ class HouseViewController: UIViewController {
     
     private let descriptionTextView: UITextView = {
         let text = UITextView()
-        text.backgroundColor = .groupTableViewBackground
+        text.backgroundColor = .systemBackground
         text.textColor = .black
         text.contentMode = .center
         text.isEditable = false
@@ -64,8 +94,6 @@ class HouseViewController: UIViewController {
     
     private let nameHouseArray = ["Forest Residence", "Aura Haus", "Ultra Park"]
     
-//    private let descriptText = Description()
-    
     private var segmentedControl = UISegmentedControl()
     
     override func viewDidLoad() {
@@ -75,9 +103,11 @@ class HouseViewController: UIViewController {
         settingsView()
     }
     
+    // MARK: - Private methods
+    
     private func settingsView() {
         
-        view.backgroundColor = .groupTableViewBackground
+        view.backgroundColor = .systemBackground
         tabBarController?.title = "Life Deluxe"
     }
     
@@ -85,7 +115,6 @@ class HouseViewController: UIViewController {
         
         chouseButton.frame = CGRect(x: 0, y: 685, width: 170, height: 50)
         chouseButton.center.x = view.center.x
-        chouseButton.addTarget(self, action: #selector(chouseButtonAction(sender: )), for: .touchUpInside)
         
         nameLabel.frame = CGRect(x: 0, y: 100, width: 110, height: 50)
         nameLabel.center.x = view.center.x
@@ -114,27 +143,12 @@ class HouseViewController: UIViewController {
     
     @objc private func selectedValue(target: UISegmentedControl) {
         
-            view.addSubview(chouseButton)
-            
-            textLabel.text = ""
+        view.addSubview(chouseButton)
         
-            let segmentIndex = segmentedControl.selectedSegmentIndex
-            imageViewRoom.image = imageArray[segmentIndex]
-            descriptionTextView.text = descriptText.descriptionHouseArray[segmentIndex]
+        textLabel.text = ""
+        
+        let segmentIndex = segmentedControl.selectedSegmentIndex
+        imageViewRoom.image = imageArray[segmentIndex]
+        descriptionTextView.text = Constants.descriptionHouseArray[segmentIndex]
     }
-    
-//    @objc private func chouseButtonAction(sender: UIButton) {
-//
-////        let bookingVC = BookingViewController()
-//
-//        let navController = UINavigationController(rootViewController: bookingVC)
-//
-//        let segmentIndex = segmentedControl.selectedSegmentIndex
-//
-//        bookingVC.houseImage.image = imageArray[segmentIndex]
-//        bookingVC.nameHouseLabel.text = nameHouseArray[segmentIndex]
-//
-//        navController.modalPresentationStyle = .fullScreen
-//        show(bookingVC, sender: true)
-//    }
 }

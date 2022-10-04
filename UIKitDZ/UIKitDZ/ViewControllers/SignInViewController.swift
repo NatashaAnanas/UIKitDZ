@@ -6,19 +6,50 @@
 //
 
 import UIKit
-/// ViewController
-class SignInViewController: UIViewController, UITextFieldDelegate {
+/// Экран входа
+final class SignInViewController: UIViewController, UITextFieldDelegate {
     
-    @IBOutlet weak var emailTextField: UITextField!
-    @IBOutlet weak var passwordTextField: UITextField!
-    @IBOutlet weak var signInButton: UIButton!
-    @IBOutlet weak var errorLabel: UILabel!
+    private enum Constants {
+        static let errorEmailPassword = "Неверный email или пароль"
+        static let emptyText = ""
+    }
+    
+    // MARK: - @IBOutlet
+    @IBOutlet private weak var emailTextField: UITextField!
+    @IBOutlet private weak var passwordTextField: UITextField!
+    @IBOutlet private weak var signInButton: UIButton!
+    @IBOutlet private weak var errorLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         createUI()
     }
+    
+    // MARK: - Public method
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        switchBaseNextTextField(textField)
+        return true
+    }
+    
+    // MARK: - @IBAction
+    
+    @IBAction private func signInButtonAction(_ sender: Any) {
+        
+        guard Info.info.usersMap[emailTextField.text ?? Constants.emptyText] == passwordTextField.text else {
+            errorLabel.text = Constants.errorEmailPassword
+            return
+        }
+        errorLabel.text = Constants.emptyText
+        
+        let tabBarVc = BaseTabBarController()
+        
+        let navController = UINavigationController(rootViewController: tabBarVc)
+        navController.modalPresentationStyle = .fullScreen
+        present(navController, animated: true)
+    }
+    
+    // MARK: - Private method
     
     private func createUI() {
         signInButton.layer.cornerRadius = 20
@@ -38,7 +69,6 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
         
         emailTextField.delegate = self
         passwordTextField.delegate = self
-        
     }
     
     private func switchBaseNextTextField(_ textField: UITextField) {
@@ -51,26 +81,4 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
             passwordTextField.resignFirstResponder()
         }
     }
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        switchBaseNextTextField(textField)
-        return true
-    }
-    
-    @IBAction private func signInButtonAction(_ sender: Any) {
-        
-        guard Info.info.usersMap[emailTextField.text ?? ""] == passwordTextField.text else {
-            errorLabel.text = "Неверный email или пароль"
-            print(Info.info.usersMap)
-            return
-        }
-        errorLabel.text = ""
-        
-        let tabBarVc = BaseTabBarController()
-        
-        let navController = UINavigationController(rootViewController: tabBarVc)
-        navController.modalPresentationStyle = .fullScreen
-        present(navController, animated: true)
-    }
-    
 }

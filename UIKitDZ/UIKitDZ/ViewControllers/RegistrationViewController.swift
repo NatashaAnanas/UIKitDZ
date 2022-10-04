@@ -7,19 +7,58 @@
 
 import UIKit
 /// Экран регистрации
-class RegistrationViewController: UIViewController, UITextFieldDelegate {
+final class RegistrationViewController: UIViewController, UITextFieldDelegate {
     
-    @IBOutlet weak var newEmailTextField: UITextField!
-    @IBOutlet weak var newPasswordTextField: UITextField!
-    @IBOutlet weak var passwordTwoTextField: UITextField!
-    @IBOutlet weak var infoLabel: UILabel!
+    private enum Constants {
+        static let successReg = "Регистрация прошла успешно"
+        static let differentPassword = "Пароли не совпадают"
+        static let errorEmail = "Такой email уже существует"
+        static let emptyText = ""
+    }
+    
+    // MARK: - @IBOutlet
+    
+    @IBOutlet private weak var newEmailTextField: UITextField!
+    @IBOutlet private weak var newPasswordTextField: UITextField!
+    @IBOutlet private weak var passwordTwoTextField: UITextField!
+    @IBOutlet private weak var infoLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         createUI()
-
     }
+    
+    // MARK: - Public methods
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        switchBaseNextTextField(textField)
+        return true
+    }
+    
+    // MARK: - @IBAction
+    
+    @IBAction private func regButtonAction(_ sender: Any) {
+        
+        let email = newEmailTextField.text ?? Constants.emptyText
+        let password = passwordTwoTextField.text ?? Constants.emptyText
+        
+        guard Info.info.usersMap[newEmailTextField.text ?? ""] != nil else {
+
+            if newPasswordTextField.text == passwordTwoTextField.text {
+                
+                Info.info.usersMap[email] = password
+                infoLabel.text = Constants.successReg
+                
+                UserDefaults.standard.set(Info.info.usersMap, forKey: "dict")
+            } else {
+                infoLabel.text = Constants.differentPassword
+            }
+            return
+        }
+        infoLabel.text = Constants.errorEmail
+    }
+    
+    // MARK: - Private methods
     
     private func createUI() {
         
@@ -38,7 +77,6 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate {
         newEmailTextField.delegate = self
         newPasswordTextField.delegate = self
         passwordTwoTextField.delegate = self
-        
     }
     
     private func switchBaseNextTextField(_ textField: UITextField) {
@@ -52,27 +90,5 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate {
         default:
             passwordTwoTextField.resignFirstResponder()
         }
-    }
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        switchBaseNextTextField(textField)
-        return true
-    }
-
-    @IBAction func regButtonAction(_ sender: Any) {
-        
-        guard Info.info.usersMap[newEmailTextField.text ?? ""] != nil else {
-            
-            if newPasswordTextField.text == passwordTwoTextField.text {
-                Info.info.usersMap.updateValue(newPasswordTextField.text ?? "", forKey: newEmailTextField.text ?? "")
-                infoLabel.text = "Регистрация прошла успешно"
-                print(Info.info.usersMap)
-               
-            } else {
-                infoLabel.text = "Пароли не совпадают"
-            }
-            return
-        }
-        infoLabel.text = "Такой email уже существует"
     }
 }

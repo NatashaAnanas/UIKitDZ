@@ -8,7 +8,7 @@
 import UIKit
 /// Хранилище данных пользователя
 struct Info {
-    var usersMap: [String: String] = [:]
+    var usersMap: [String: String] = UserDefaults.standard.object(forKey: "dict") as? [String: String] ?? [:]
     
     static var info = Info()
     
