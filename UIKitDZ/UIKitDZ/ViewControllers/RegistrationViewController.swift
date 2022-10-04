@@ -7,18 +7,56 @@
 
 import UIKit
 /// Экран регистрации
-class RegistrationViewController: UIViewController {
+class RegistrationViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var newEmailTextField: UITextField!
     @IBOutlet weak var newPasswordTextField: UITextField!
     @IBOutlet weak var passwordTwoTextField: UITextField!
     @IBOutlet weak var infoLabel: UILabel!
     
-//    var newInfo = Info.info.usersMap
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        createUI()
 
+    }
+    
+    private func createUI() {
+        
+        NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillShowNotification,
+                                               object: nil,
+                                               queue: nil) { _ in
+            self.view.frame.origin.y = -200
+        }
+        
+        NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillHideNotification,
+                                               object: nil,
+                                               queue: nil) { _ in
+            self.view.frame.origin.y = 0.0
+        }
+        
+        newEmailTextField.delegate = self
+        newPasswordTextField.delegate = self
+        passwordTwoTextField.delegate = self
+        
+    }
+    
+    private func switchBaseNextTextField(_ textField: UITextField) {
+        switch textField {
+        case newEmailTextField:
+            newPasswordTextField.becomeFirstResponder()
+        case newPasswordTextField:
+            passwordTwoTextField.becomeFirstResponder()
+        case passwordTwoTextField:
+            passwordTwoTextField.resignFirstResponder()
+        default:
+            passwordTwoTextField.resignFirstResponder()
+        }
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        switchBaseNextTextField(textField)
+        return true
     }
 
     @IBAction func regButtonAction(_ sender: Any) {
