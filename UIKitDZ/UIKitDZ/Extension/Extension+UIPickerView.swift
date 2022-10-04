@@ -25,6 +25,6 @@ extension ViewController: UIPickerViewDelegate, UIPickerViewDataSource {
         
         let size = text.font?.pointSize ?? 20
         
-        fontButton.titleLabel?.font = UIFont(name: styles[row], size: size)
+        text.font = UIFont(name: styles[row], size: size)
     }
 }

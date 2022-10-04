@@ -7,11 +7,11 @@
 
 import UIKit
 /// ViewController
-class ViewController: UIViewController, UITextViewDelegate {
+class ViewController: UIViewController, UITextFieldDelegate {
     
     let sizeSlider: UISlider = {
         let slider = UISlider()
-        slider.minimumValue = 18
+        slider.minimumValue = 22
         slider.maximumValue = 64
         slider.minimumTrackTintColor = .blue
         return slider
@@ -113,10 +113,13 @@ class ViewController: UIViewController, UITextViewDelegate {
         
         view.backgroundColor = .white
         
+        backgroundPageTextField.delegate = self
+        backgroundPageTextField.inputView = backgroundPickerView
+        backgroundPageTextField.isHidden = true
+        view.addSubview(backgroundPageTextField)
+        
         backgroundPickerView.dataSource = self
         backgroundPickerView.delegate = self
-        
-        backgroundPageTextField.inputView = backgroundPickerView
         
         orangeTextColorButton.frame = CGRect(x: 110, y: 750, width: 40, height: 40)
         view.addSubview(orangeTextColorButton)
