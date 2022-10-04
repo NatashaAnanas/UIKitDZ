@@ -9,4 +9,9 @@ import UIKit
 /// Хранилище данных пользователя
 struct Info {
     var usersMap: [String: String] = [:]
+    
+    static var info = Info()
+    
+    private init() {
+    }
 }

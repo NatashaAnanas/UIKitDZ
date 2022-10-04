@@ -9,45 +9,32 @@ import UIKit
 /// Экран регистрации
 class RegistrationViewController: UIViewController {
     
-    @IBOutlet weak var emailTextField: UITextField!
-    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var newEmailTextField: UITextField!
+    @IBOutlet weak var newPasswordTextField: UITextField!
     @IBOutlet weak var passwordTwoTextField: UITextField!
-    @IBOutlet weak var registrationButton: UIButton!
     @IBOutlet weak var infoLabel: UILabel!
     
-    var info = Info()
+//    var newInfo = Info.info.usersMap
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
     }
-    
-    @IBAction func registrationButtonAction(_ sender: Any) {
+
+    @IBAction func regButtonAction(_ sender: Any) {
         
-        guard info.usersMap[emailTextField.text ?? ""] != nil else {
-            info.usersMap.updateValue(passwordTextField.text ?? "", forKey: emailTextField.text ?? "")
+        guard Info.info.usersMap[newEmailTextField.text ?? ""] != nil else {
+            
+            if newPasswordTextField.text == passwordTwoTextField.text {
+                Info.info.usersMap.updateValue(newPasswordTextField.text ?? "", forKey: newEmailTextField.text ?? "")
+                infoLabel.text = "Регистрация прошла успешно"
+                print(Info.info.usersMap)
+               
+            } else {
+                infoLabel.text = "Пароли не совпадают"
+            }
             return
         }
-        
         infoLabel.text = "Такой email уже существует"
-        
-//        if passwordTextField.text == passwordTwoTextField.text {
-//
-//            if info.usersMap[emailTextField.text ?? ""] == passwordTextField.text {
-//                infoLabel.text = "Такой email уже существует"
-//            } else {
-//
-//                infoLabel.text = ""
-//                if passwordTextField.text == passwordTwoTextField.text {
-//                    info.usersMap.updateValue(passwordTextField.text ?? "",
-//                                              forKey: emailTextField.text ?? "")
-//
-//                    infoLabel.text = "Регистрация прошла успешно"
-//                }
-//            }
-//        } else {
-//            infoLabel.text = "Пароли не совпадают"
-//            print(info.usersMap)
-//        }
     }
 }
