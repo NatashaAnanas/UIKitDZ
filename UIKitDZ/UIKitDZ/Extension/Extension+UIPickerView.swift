@@ -7,7 +7,7 @@
 
 import UIKit
 /// Расширение для UIPickerView
-extension ViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+extension PageViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         1

@@ -7,9 +7,47 @@
 
 import UIKit
 /// ViewController
-class ViewController: UIViewController, UITextFieldDelegate {
+class PageViewController: UIViewController, UITextFieldDelegate {
     
-    let sizeSlider: UISlider = {
+    private enum Constant {
+        static let textBook = """
+Все счастливые семьи похожи друг на друга, каждая несчастливая семья несчастлива по-своему.
+Все смешалось в доме Облонских. Жена узнала, что муж был в связи с бывшею в их доме
+ француженкою-гувернанткой, и объявила мужу, что не может жить с ним в одном доме.
+ Положение это продолжалось уже третий день и мучительно чувствовалось и самими супругами,
+ и всеми членами семьи, и домочадцами. Все члены семьи и домочадцы чувствовали,
+ что нет смысла в их сожительстве и что на каждом постоялом дворе случайно
+ сошедшиеся люди более связаны между собой, чем они, члены семьи и домочадцы Облонских.
+ Жена не выходила из своих комнат, мужа третий день не было дома.
+ Дети бегали по всему дому, как потерянные;
+англичанка поссорилась с экономкой и написала записку приятельнице,
+прося приискать ей новое место; повар ушел вчера со двора,
+во время самого обеда; черная кухарка и кучер просили расчета.
+На третий день после ссоры князь Степан Аркадьич Облонский — Стива,
+как его звали в свете, — в обычный час, то есть в восемь часов утра,
+ проснулся не в спальне жены, а в своем кабинете, на сафьянном диване.
+ Он повернул свое полное, выхоленное тело на пружинах дивана,
+как бы желая опять заснуть надолго, с другой стороны крепко обнял подушку
+ и прижался к ней щекой; но вдруг вскочил, сел на диван и открыл глаза.
+«Да, да, как это было? — думал он, вспоминая сон. — Да, как это было?
+ Да! Алабин давал обед в Дармштадте; нет, не в Дармштадте, а что-то американское.
+ Да, но там Дармштадт был в Америке. Да, Алабин давал обед на стеклянных столах,
+ да, — и столы пели: Il mio tesoro 1 и не Il mio tesoro, а что-то лучше,
+ и какие-то маленькие графинчики, и они же женщины», — вспоминал он.
+Глаза Степана Аркадьича весело заблестели, и он задумался, улыбаясь.
+ «Да, хорошо было, очень хорошо. Много еще что-то там было отличного,
+да не скажешь словами и мыслями даже наяву не выразишь».
+И, заметив полосу света, пробившуюся сбоку одной из суконных стор,
+ он весело скинул ноги с дивана, отыскал ими шитые женой
+(подарок ко дню рождения в прошлом году), обделанные в золотистый сафьян туфли,
+ и по старой, девятилетней привычке, не вставая, потянулся рукой к тому месту,
+ где в спальне у него висел халат. И тут он вспомнил вдруг, как и почему он спит
+ не в спальне жены, а в кабинете; улыбка исчезла с его лица, он сморщил лоб.
+"""
+    }
+    // MARK: - Private Property
+    
+    private let sizeSlider: UISlider = {
         let slider = UISlider()
         slider.minimumValue = 22
         slider.maximumValue = 64
@@ -17,15 +55,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         return slider
     }()
     
-    let text: UITextView = {
-        let text = UITextView()
-        text.textColor = .darkText
-        text.font = .systemFont(ofSize: 20)
-        text.text = "Hello Natasha"
-        return text
-    }()
-    
-    let fontButton: UIButton = {
+    private let fontButton: UIButton = {
         let button = UIButton()
         button.setTitle("A", for: .normal)
         button.setTitleColor(UIColor.black, for: .normal)
@@ -33,13 +63,13 @@ class ViewController: UIViewController, UITextFieldDelegate {
         return button
     }()
     
-    let backgroundPageSwitch: UISwitch = {
+    private let backgroundPageSwitch: UISwitch = {
         let swit = UISwitch()
         swit.setOn(false, animated: true)
         return swit
     }()
     
-    let styleTextButton: UIButton = {
+    private let styleTextButton: UIButton = {
         let button = UIButton()
         button.setTitle("Шрифт", for: .normal)
         button.setTitleColor(UIColor.black, for: .normal)
@@ -49,17 +79,12 @@ class ViewController: UIViewController, UITextFieldDelegate {
         return button
     }()
     
-    let backgroundPageTextField: UITextField = {
+    private let backgroundPageTextField: UITextField = {
         let text = UITextField()
         return text
     }()
     
-    let backgroundPickerView: UIPickerView = {
-        let picker = UIPickerView()
-        return picker
-    }()
-    
-    let darkTextColortButton: UIButton = {
+    private let darkTextColortButton: UIButton = {
         let button = UIButton()
         button.layer.cornerRadius = 20
         button.backgroundColor = .blue
@@ -67,7 +92,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         return button
     }()
     
-    let mintTextColorButton: UIButton = {
+    private let mintTextColorButton: UIButton = {
         let button = UIButton()
         button.layer.cornerRadius = 20
         button.backgroundColor = .systemMint
@@ -75,7 +100,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         return button
     }()
     
-    let tertiaryTextColorButton: UIButton = {
+    private let tertiaryTextColorButton: UIButton = {
         let button = UIButton()
         button.layer.cornerRadius = 20
         button.backgroundColor = .tertiaryLabel
@@ -83,7 +108,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         return button
     }()
     
-    let orangeTextColorButton: UIButton = {
+    private let orangeTextColorButton: UIButton = {
         let button = UIButton()
         button.layer.cornerRadius = 20
         button.backgroundColor = .orange
@@ -91,12 +116,26 @@ class ViewController: UIViewController, UITextFieldDelegate {
         return button
     }()
     
-    let colorTextButton: UIButton = {
+    private let colorTextButton: UIButton = {
         let button = UIButton()
         button.layer.cornerRadius = 20
         button.backgroundColor = .black
         return button
     }()
+    
+    private let backgroundPickerView: UIPickerView = {
+        let picker = UIPickerView()
+        return picker
+    }()
+    
+    let text: UITextView = {
+        let text = UITextView()
+        text.textColor = .darkText
+        text.font = .systemFont(ofSize: 20)
+        return text
+    }()
+    
+    // MARK: - Public Property
     
     let styles = [ "Arial", "Georgia", "Verdana", "Impact", "Avenir-Light"]
 
@@ -105,13 +144,12 @@ class ViewController: UIViewController, UITextFieldDelegate {
         createUI()
     }
     
-    func createFont() {
-//        let font = UIFont.systemFont(ofSize: 20, weight: 0.9)
-    }
-    
+    // MARK: - Private Methods
     private func createUI() {
         
         view.backgroundColor = .white
+        
+        text.text = Constant.textBook
         
         backgroundPageTextField.delegate = self
         backgroundPageTextField.inputView = backgroundPickerView
@@ -183,12 +221,11 @@ class ViewController: UIViewController, UITextFieldDelegate {
         styleTextButton.addTarget(self, action: #selector(styleTextButtonAction(sender: )), for: .touchUpInside)
     }
     
-    @objc func styleTextButtonAction(sender: UIButton) {
+    @objc private func styleTextButtonAction(sender: UIButton) {
         backgroundPageTextField.becomeFirstResponder()
     }
-//    label.font = UIFont(name: "Avenir-Light", size: 15.0)
     
-    @objc func textColorButtonAction(sender: UIButton) {
+    @objc private func textColorButtonAction(sender: UIButton) {
         switch sender.tag {
         case 0:
             text.textColor = .blue
@@ -203,7 +240,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    @objc func backgroundPageSwitchAction(sender: UISwitch) {
+    @objc private func backgroundPageSwitchAction(sender: UISwitch) {
         
         if backgroundPageSwitch.isOn {
             text.backgroundColor = .darkText
@@ -218,7 +255,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    @objc func fontButtonAction(sender: UIButton) {
+    @objc private func fontButtonAction(sender: UIButton) {
         
         let size = text.font?.pointSize ?? 20
         
@@ -229,17 +266,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
             text.font = UIFont.systemFont(ofSize: size, weight: UIFont.Weight(rawValue: 0.2))
             fontButton.setTitle("A", for: .normal)
         }
-        
-//        "Arial" "Georgia" "Verdana" "Impact" "Avenir-Light"
-//        fontButton.titleLabel.font = UIFont(name: "Avenir-Light", size: 15.0)
     }
     
-    @objc func sizeSliderAction(sender: UISlider) {
-        
+    @objc private func sizeSliderAction(sender: UISlider) {
         text.font = .systemFont(ofSize: CGFloat(sizeSlider.value))
     }
-}
-
-extension UIFont {
-    
 }
