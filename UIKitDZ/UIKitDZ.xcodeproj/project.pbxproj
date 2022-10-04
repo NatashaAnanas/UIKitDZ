@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		4179EEB328ECCDD3000D5121 /* NewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4179EEB228ECCDD3000D5121 /* NewViewController.swift */; };
 		4179EEB528ECCDFE000D5121 /* BaseTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4179EEB428ECCDFE000D5121 /* BaseTabBarController.swift */; };
+		4179EEB728ECD633000D5121 /* кровать2.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 4179EEB628ECD633000D5121 /* кровать2.jpeg */; };
+		4179EEB928ECD637000D5121 /* кровать3.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 4179EEB828ECD637000D5121 /* кровать3.jpeg */; };
+		4179EEBB28ECD63A000D5121 /* кровать1.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 4179EEBA28ECD63A000D5121 /* кровать1.jpeg */; };
+		4179EEBF28ECD66E000D5121 /* дом2.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 4179EEBC28ECD66E000D5121 /* дом2.jpeg */; };
+		4179EEC028ECD66E000D5121 /* дом1.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 4179EEBD28ECD66E000D5121 /* дом1.jpeg */; };
+		4179EEC128ECD66E000D5121 /* дом3.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 4179EEBE28ECD66E000D5121 /* дом3.jpeg */; };
 		418D877228DB8387006178FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418D877128DB8387006178FD /* AppDelegate.swift */; };
 		418D877428DB8387006178FD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418D877328DB8387006178FD /* SceneDelegate.swift */; };
 		418D877628DB8387006178FD /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418D877528DB8387006178FD /* SignInViewController.swift */; };
@@ -23,6 +29,12 @@
 /* Begin PBXFileReference section */
 		4179EEB228ECCDD3000D5121 /* NewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewViewController.swift; sourceTree = "<group>"; };
 		4179EEB428ECCDFE000D5121 /* BaseTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseTabBarController.swift; path = ../../../../../../.Trash/BaseTabBarController.swift; sourceTree = "<group>"; };
+		4179EEB628ECD633000D5121 /* кровать2.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "кровать2.jpeg"; path = "../../../../кровать2.jpeg"; sourceTree = "<group>"; };
+		4179EEB828ECD637000D5121 /* кровать3.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "кровать3.jpeg"; path = "../../../../кровать3.jpeg"; sourceTree = "<group>"; };
+		4179EEBA28ECD63A000D5121 /* кровать1.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "кровать1.jpeg"; path = "../../../../кровать1.jpeg"; sourceTree = "<group>"; };
+		4179EEBC28ECD66E000D5121 /* дом2.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "дом2.jpeg"; path = "../../../../дом2.jpeg"; sourceTree = "<group>"; };
+		4179EEBD28ECD66E000D5121 /* дом1.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "дом1.jpeg"; path = "../../../../дом1.jpeg"; sourceTree = "<group>"; };
+		4179EEBE28ECD66E000D5121 /* дом3.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "дом3.jpeg"; path = "../../../../дом3.jpeg"; sourceTree = "<group>"; };
 		418D876E28DB8387006178FD /* UIKitDZ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UIKitDZ.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		418D877128DB8387006178FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		418D877328DB8387006178FD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -74,6 +86,12 @@
 				418D877A28DB838B006178FD /* Assets.xcassets */,
 				418D877C28DB838B006178FD /* LaunchScreen.storyboard */,
 				418D877F28DB838B006178FD /* Info.plist */,
+				4179EEB628ECD633000D5121 /* кровать2.jpeg */,
+				4179EEBD28ECD66E000D5121 /* дом1.jpeg */,
+				4179EEBC28ECD66E000D5121 /* дом2.jpeg */,
+				4179EEBE28ECD66E000D5121 /* дом3.jpeg */,
+				4179EEB828ECD637000D5121 /* кровать3.jpeg */,
+				4179EEBA28ECD63A000D5121 /* кровать1.jpeg */,
 			);
 			path = UIKitDZ;
 			sourceTree = "<group>";
@@ -157,9 +175,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4179EEBF28ECD66E000D5121 /* дом2.jpeg in Resources */,
+				4179EEC128ECD66E000D5121 /* дом3.jpeg in Resources */,
+				4179EEBB28ECD63A000D5121 /* кровать1.jpeg in Resources */,
 				418D877E28DB838B006178FD /* LaunchScreen.storyboard in Resources */,
 				418D877B28DB838B006178FD /* Assets.xcassets in Resources */,
+				4179EEC028ECD66E000D5121 /* дом1.jpeg in Resources */,
+				4179EEB928ECD637000D5121 /* кровать3.jpeg in Resources */,
 				418D877928DB8387006178FD /* Main.storyboard in Resources */,
+				4179EEB728ECD633000D5121 /* кровать2.jpeg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
