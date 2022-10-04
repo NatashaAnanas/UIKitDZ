@@ -14,36 +14,17 @@ extension ViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        switch pickerView.tag {
-        case 0:
-            return colors.count
-        case 1:
-            return nums.count
-        default:
-            return 0
-        }
+        styles.count
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        switch pickerView.tag {
-        case 0:
-            return colors[row].0
-        case 1:
-            return nums[row]
-        default:
-            return ""
-        }
+        styles[row]
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        switch pickerView.tag {
-        case 0:
-            return myLabel.textColor = colors[row].1
-        case 1:
-            return myLabel.numberOfLines = Int(nums[row]) ?? 0
-        default:
-            break
-        }
+        
+        let size = text.font?.pointSize ?? 20
+        
+        fontButton.titleLabel?.font = UIFont(name: styles[row], size: size)
     }
 }
-

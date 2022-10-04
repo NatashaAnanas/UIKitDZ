@@ -113,6 +113,11 @@ class ViewController: UIViewController, UITextViewDelegate {
         
         view.backgroundColor = .white
         
+        backgroundPickerView.dataSource = self
+        backgroundPickerView.delegate = self
+        
+        backgroundPageTextField.inputView = backgroundPickerView
+        
         orangeTextColorButton.frame = CGRect(x: 110, y: 750, width: 40, height: 40)
         view.addSubview(orangeTextColorButton)
         
@@ -176,7 +181,7 @@ class ViewController: UIViewController, UITextViewDelegate {
     }
     
     @objc func styleTextButtonAction(sender: UIButton) {
-   
+        backgroundPageTextField.becomeFirstResponder()
     }
 //    label.font = UIFont(name: "Avenir-Light", size: 15.0)
     
