@@ -15,6 +15,7 @@
 		4179EEBF28ECD66E000D5121 /* дом2.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 4179EEBC28ECD66E000D5121 /* дом2.jpeg */; };
 		4179EEC028ECD66E000D5121 /* дом1.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 4179EEBD28ECD66E000D5121 /* дом1.jpeg */; };
 		4179EEC128ECD66E000D5121 /* дом3.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 4179EEBE28ECD66E000D5121 /* дом3.jpeg */; };
+		4179EEC328ECD707000D5121 /* Description.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4179EEC228ECD707000D5121 /* Description.swift */; };
 		418D877228DB8387006178FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418D877128DB8387006178FD /* AppDelegate.swift */; };
 		418D877428DB8387006178FD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418D877328DB8387006178FD /* SceneDelegate.swift */; };
 		418D877628DB8387006178FD /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 418D877528DB8387006178FD /* SignInViewController.swift */; };
@@ -35,6 +36,7 @@
 		4179EEBC28ECD66E000D5121 /* дом2.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "дом2.jpeg"; path = "../../../../дом2.jpeg"; sourceTree = "<group>"; };
 		4179EEBD28ECD66E000D5121 /* дом1.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "дом1.jpeg"; path = "../../../../дом1.jpeg"; sourceTree = "<group>"; };
 		4179EEBE28ECD66E000D5121 /* дом3.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "дом3.jpeg"; path = "../../../../дом3.jpeg"; sourceTree = "<group>"; };
+		4179EEC228ECD707000D5121 /* Description.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Description.swift; sourceTree = "<group>"; };
 		418D876E28DB8387006178FD /* UIKitDZ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UIKitDZ.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		418D877128DB8387006178FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		418D877328DB8387006178FD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				41AF830128EB3A29000B5CF1 /* Info.swift */,
+				4179EEC228ECD707000D5121 /* Description.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -216,6 +219,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4179EEB528ECCDFE000D5121 /* BaseTabBarController.swift in Sources */,
+				4179EEC328ECD707000D5121 /* Description.swift in Sources */,
 				41AF830528EB4164000B5CF1 /* ViewController.swift in Sources */,
 				418D877628DB8387006178FD /* SignInViewController.swift in Sources */,
 				4179EEB328ECCDD3000D5121 /* NewViewController.swift in Sources */,
