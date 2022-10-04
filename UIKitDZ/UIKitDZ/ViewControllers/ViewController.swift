@@ -97,6 +97,8 @@ class ViewController: UIViewController, UITextViewDelegate {
         button.backgroundColor = .black
         return button
     }()
+    
+    let styles = [ "Arial", "Georgia", "Verdana", "Impact", "Avenir-Light"]
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -14,6 +14,7 @@
 		418D877B28DB838B006178FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 418D877A28DB838B006178FD /* Assets.xcassets */; };
 		418D877E28DB838B006178FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 418D877C28DB838B006178FD /* LaunchScreen.storyboard */; };
 		41AF830828EC38B0000B5CF1 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AF830728EC38B0000B5CF1 /* SettingViewController.swift */; };
+		41AF830B28EC67F5000B5CF1 /* Extension+UIPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AF830A28EC67F5000B5CF1 /* Extension+UIPickerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		418D877D28DB838B006178FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		418D877F28DB838B006178FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		41AF830728EC38B0000B5CF1 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		41AF830A28EC67F5000B5CF1 /* Extension+UIPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIPickerView.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 		418D877028DB8387006178FD /* UIKitDZ */ = {
 			isa = PBXGroup;
 			children = (
+				41AF830928EC67D6000B5CF1 /* Extension */,
 				41AF830628EC3875000B5CF1 /* ViewControllers */,
 				418D877128DB8387006178FD /* AppDelegate.swift */,
 				418D877328DB8387006178FD /* SceneDelegate.swift */,
@@ -76,6 +79,14 @@
 				418D877528DB8387006178FD /* ViewController.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		41AF830928EC67D6000B5CF1 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				41AF830A28EC67F5000B5CF1 /* Extension+UIPickerView.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -171,6 +182,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41AF830B28EC67F5000B5CF1 /* Extension+UIPickerView.swift in Sources */,
 				418D877628DB8387006178FD /* ViewController.swift in Sources */,
 				418D877228DB8387006178FD /* AppDelegate.swift in Sources */,
 				418D877428DB8387006178FD /* SceneDelegate.swift in Sources */,
