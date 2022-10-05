@@ -7,7 +7,7 @@
 
 import UIKit
 /// Экран входа
-final class SignInViewController: UIViewController, UITextFieldDelegate {
+final class SignInViewController: UIViewController {
     
     private enum Constants {
         static let errorEmailPassword = "Неверный email или пароль"

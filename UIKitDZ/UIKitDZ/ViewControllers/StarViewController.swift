@@ -9,7 +9,7 @@ import UIKit
 /// Контроллер со switch
 final class StarViewController: UIViewController {
    
-    // MARK: - Private Properties
+    // MARK: - Private  Visual Components
     
     private let colorSwitch: UISwitch = {
         let sw = UISwitch()

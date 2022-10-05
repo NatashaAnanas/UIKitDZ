@@ -7,7 +7,7 @@
 
 import UIKit
 /// Экран регистрации
-final class RegistrationViewController: UIViewController, UITextFieldDelegate {
+final class RegistrationViewController: UIViewController {
     
     private enum Constants {
         static let successReg = "Регистрация прошла успешно"
@@ -16,7 +16,7 @@ final class RegistrationViewController: UIViewController, UITextFieldDelegate {
         static let emptyText = ""
     }
     
-    // MARK: - @IBOutlet
+    // MARK: - private @IBOutlet
     
     @IBOutlet private weak var newEmailTextField: UITextField!
     @IBOutlet private weak var newPasswordTextField: UITextField!
@@ -35,7 +35,7 @@ final class RegistrationViewController: UIViewController, UITextFieldDelegate {
         return true
     }
     
-    // MARK: - @IBAction
+    // MARK: - Private @IBAction
     
     @IBAction private func regButtonAction(_ sender: Any) {
         

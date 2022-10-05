@@ -37,7 +37,7 @@ final class HouseViewController: UIViewController {
         ]
     }
     
-    // MARK: - Private Properties
+    // MARK: - Visual Components
     
     private let chouseButton: UIButton = {
         let button = UIButton(type: .custom)
@@ -50,7 +50,7 @@ final class HouseViewController: UIViewController {
         return button
     }()
     
-    private let imageViewRoom: UIImageView = {
+    private let roomImageView: UIImageView = {
         let image = UIImageView()
         image.layer.cornerRadius = 10
         image.clipsToBounds = true
@@ -58,7 +58,7 @@ final class HouseViewController: UIViewController {
         return image
     }()
     
-    private let imageArray = [UIImage(named: "дом1"),
+    private let image = [UIImage(named: "дом1"),
                       UIImage(named: "дом2"),
                       UIImage(named: "дом3")]
     
@@ -92,7 +92,7 @@ final class HouseViewController: UIViewController {
         return text
     }()
     
-    private let nameHouseArray = ["Forest Residence", "Aura Haus", "Ultra Park"]
+    private let nameHouse = ["Forest Residence", "Aura Haus", "Ultra Park"]
     
     private var segmentedControl = UISegmentedControl()
     
@@ -120,7 +120,7 @@ final class HouseViewController: UIViewController {
         nameLabel.center.x = view.center.x
         view.addSubview(nameLabel)
         
-        segmentedControl = UISegmentedControl(items: nameHouseArray)
+        segmentedControl = UISegmentedControl(items: nameHouse)
         segmentedControl.frame = CGRect(x: 0, y: 750, width: 350, height: 50)
         segmentedControl.center.x = view.center.x
         segmentedControl.backgroundColor = .lightText
@@ -128,9 +128,9 @@ final class HouseViewController: UIViewController {
         
         segmentedControl.addTarget(self, action: #selector(selectedValue(target: )), for: .valueChanged)
         
-        imageViewRoom.frame = CGRect(x: 0, y: 160, width: 370, height: 220)
-        imageViewRoom.center.x = view.center.x
-        view.addSubview(imageViewRoom)
+        roomImageView.frame = CGRect(x: 0, y: 160, width: 370, height: 220)
+        roomImageView.center.x = view.center.x
+        view.addSubview(roomImageView)
         
         descriptionTextView.frame = CGRect(x: 0, y: 410, width: 350, height: 250)
         descriptionTextView.center.x = view.center.x
@@ -141,6 +141,8 @@ final class HouseViewController: UIViewController {
         view.addSubview(textLabel)
     }
     
+    // MARK: - private @IBOutlet
+    
     @objc private func selectedValue(target: UISegmentedControl) {
         
         view.addSubview(chouseButton)
@@ -148,7 +150,7 @@ final class HouseViewController: UIViewController {
         textLabel.text = ""
         
         let segmentIndex = segmentedControl.selectedSegmentIndex
-        imageViewRoom.image = imageArray[segmentIndex]
+        roomImageView.image = image[segmentIndex]
         descriptionTextView.text = Constants.descriptionHouseArray[segmentIndex]
     }
 }
