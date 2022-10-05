@@ -22,8 +22,8 @@ extension StopwatchViewController: UITableViewDataSource, UITableViewDelegate {
         cell.textLabel?.text =
         "\(cellText)\(indexPath.row + 1)\(space)\(lapTime[indexPath.row])"
         
-        cell.backgroundColor = .black
-        cell.textLabel?.textColor = .white
+        cell.backgroundColor = .systemMint
+        cell.textLabel?.textColor = .black
         
         return cell
     }

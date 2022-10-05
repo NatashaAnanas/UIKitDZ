@@ -72,6 +72,17 @@ final class StopwatchViewController: UIViewController {
         createTableView()
     }
     
+    // MARK: - Create tableView
+    
+    func createTableView() {
+        
+        timeTableView.delegate = self
+        timeTableView.dataSource = self
+        
+        timeTableView.register(UITableViewCell.self, forCellReuseIdentifier: indentifire)
+        timeTableView.backgroundColor = .systemMint
+    }
+
     // MARK: - Create startButtonAction
     
     @objc private func startButtonAction(sender: UIButton) {
@@ -151,21 +162,11 @@ final class StopwatchViewController: UIViewController {
         timeTableView.reloadData()
     }
     
-    // MARK: - Create tableView
-    
-    func createTableView() {
-        
-        timeTableView.delegate = self
-        timeTableView.dataSource = self
-        
-        timeTableView.register(UITableViewCell.self, forCellReuseIdentifier: indentifire)
-        timeTableView.backgroundColor = .black
-    }
     // MARK: - Setup Views
     
     private func setupViews() {
         
-        view.backgroundColor = .black
+//        view.backgroundColor = .black
         
         let viewsArray = [startButton, circleButton, timeLabel, timeTableView]
         for ui in viewsArray {
