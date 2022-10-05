@@ -7,7 +7,7 @@
 
 import UIKit
 /// ViewController
-class PageViewController: UIViewController, UITextFieldDelegate {
+final class PageViewController: UIViewController, UITextFieldDelegate {
     
     private enum Constant {
         static let textBook = """
@@ -45,7 +45,7 @@ class PageViewController: UIViewController, UITextFieldDelegate {
  не в спальне жены, а в кабинете; улыбка исчезла с его лица, он сморщил лоб.
 """
     }
-    // MARK: - Private Property
+    // MARK: - Private Visual Components
     
     private let sizeSlider: UISlider = {
         let slider = UISlider()
@@ -128,28 +128,30 @@ class PageViewController: UIViewController, UITextFieldDelegate {
         return picker
     }()
     
-    let text: UITextView = {
+    let textView: UITextView = {
         let text = UITextView()
         text.textColor = .darkText
         text.font = .systemFont(ofSize: 20)
         return text
     }()
     
-    // MARK: - Public Property
+    // MARK: - Property
     
     let styles = [ "Arial", "Georgia", "Verdana", "Impact", "Avenir-Light"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
         createUI()
+        actions()
     }
     
     // MARK: - Private Methods
+    
     private func createUI() {
         
         view.backgroundColor = .white
         
-        text.text = Constant.textBook
+        textView.text = Constant.textBook
         
         backgroundPageTextField.delegate = self
         backgroundPageTextField.inputView = backgroundPickerView
@@ -182,93 +184,96 @@ class PageViewController: UIViewController, UITextFieldDelegate {
         backgroundPageSwitch.frame = CGRect(x: 330, y: 50, width: 40, height: 40)
         view.addSubview(backgroundPageSwitch)
         
-        text.frame = CGRect(x: 0, y: 100, width: 350, height: 500)
-        text.center.x = view.center.x
-        view.addSubview(text)
+        textView.frame = CGRect(x: 0, y: 100, width: 350, height: 500)
+        textView.center.x = view.center.x
+        view.addSubview(textView)
         
         sizeSlider.frame = CGRect(x: 0, y: 700, width: 300, height: 40)
         sizeSlider.center.x = view.center.x
         view.addSubview(sizeSlider)
-        
-        sizeSlider.addTarget(self,
-                             action: #selector(sizeSliderAction(sender: )),
-                             for: .touchUpInside)
-        
-        fontButton.addTarget(self,
-                         action: #selector(fontButtonAction(sender: )),
-                         for: .touchUpInside)
-        
-        backgroundPageSwitch.addTarget(self,
-                                       action: #selector(backgroundPageSwitchAction(sender: )),
-                                       for: .valueChanged)
-        
-        orangeTextColorButton.addTarget(self,
-                                        action: #selector(textColorButtonAction(sender: )),
-                                        for: .touchUpInside)
-        
-        tertiaryTextColorButton.addTarget(self,
-                                        action: #selector(textColorButtonAction(sender: )),
-                                        for: .touchUpInside)
-        
-        mintTextColorButton.addTarget(self,
-                                        action: #selector(textColorButtonAction(sender: )),
-                                        for: .touchUpInside)
-        
-        darkTextColortButton.addTarget(self,
-                                        action: #selector(textColorButtonAction(sender: )),
-                                        for: .touchUpInside)
-        
-        styleTextButton.addTarget(self, action: #selector(styleTextButtonAction(sender: )), for: .touchUpInside)
     }
     
-    @objc private func styleTextButtonAction(sender: UIButton) {
-        backgroundPageTextField.becomeFirstResponder()
-    }
-    
-    @objc private func textColorButtonAction(sender: UIButton) {
-        switch sender.tag {
-        case 0:
-            text.textColor = .blue
-        case 1:
-            text.textColor = .systemMint
-        case 2:
-            text.textColor = .tertiaryLabel
-        case 3:
-            text.textColor = .orange
-        default:
-            break
+        private func actions() {
+            
+            sizeSlider.addTarget(self,
+                                 action: #selector(sizeSliderAction(sender: )),
+                                 for: .touchUpInside)
+            
+            fontButton.addTarget(self,
+                                 action: #selector(fontButtonAction(sender: )),
+                                 for: .touchUpInside)
+            
+            backgroundPageSwitch.addTarget(self,
+                                           action: #selector(backgroundPageSwitchAction(sender: )),
+                                           for: .valueChanged)
+            
+            orangeTextColorButton.addTarget(self,
+                                            action: #selector(textColorButtonAction(sender: )),
+                                            for: .touchUpInside)
+            
+            tertiaryTextColorButton.addTarget(self,
+                                              action: #selector(textColorButtonAction(sender: )),
+                                              for: .touchUpInside)
+            
+            mintTextColorButton.addTarget(self,
+                                          action: #selector(textColorButtonAction(sender: )),
+                                          for: .touchUpInside)
+            
+            darkTextColortButton.addTarget(self,
+                                           action: #selector(textColorButtonAction(sender: )),
+                                           for: .touchUpInside)
+            
+            styleTextButton.addTarget(self, action: #selector(styleTextButtonAction(sender: )), for: .touchUpInside)
         }
-    }
-    
-    @objc private func backgroundPageSwitchAction(sender: UISwitch) {
         
-        if backgroundPageSwitch.isOn {
-            text.backgroundColor = .darkText
-            text.textColor = .white
-            view.backgroundColor = .darkText
-            fontButton.setTitleColor(UIColor.white, for: .normal)
-        } else {
-            text.backgroundColor = .lightText
-            text.textColor = .darkText
-            view.backgroundColor = .white
-            fontButton.setTitleColor(UIColor.black, for: .normal)
+        @objc private func styleTextButtonAction(sender: UIButton) {
+            backgroundPageTextField.becomeFirstResponder()
         }
-    }
-    
-    @objc private func fontButtonAction(sender: UIButton) {
         
-        let size = text.font?.pointSize ?? 20
-        
-        if fontButton.titleLabel?.text == "A" {
-            text.font = UIFont.systemFont(ofSize: size, weight: UIFont.Weight(rawValue: 0.8))
-            fontButton.setTitle("a", for: .normal)
-        } else {
-            text.font = UIFont.systemFont(ofSize: size, weight: UIFont.Weight(rawValue: 0.2))
-            fontButton.setTitle("A", for: .normal)
+        @objc private func textColorButtonAction(sender: UIButton) {
+            switch sender.tag {
+            case 0:
+                textView.textColor = .blue
+            case 1:
+                textView.textColor = .systemMint
+            case 2:
+                textView.textColor = .tertiaryLabel
+            case 3:
+                textView.textColor = .orange
+            default:
+                break
+            }
         }
-    }
-    
-    @objc private func sizeSliderAction(sender: UISlider) {
-        text.font = .systemFont(ofSize: CGFloat(sizeSlider.value))
+        
+        @objc private func backgroundPageSwitchAction(sender: UISwitch) {
+            
+            if backgroundPageSwitch.isOn {
+                textView.backgroundColor = .darkText
+                textView.textColor = .white
+                view.backgroundColor = .darkText
+                fontButton.setTitleColor(UIColor.white, for: .normal)
+            } else {
+                textView.backgroundColor = .lightText
+                textView.textColor = .darkText
+                view.backgroundColor = .white
+                fontButton.setTitleColor(UIColor.black, for: .normal)
+            }
+        }
+        
+        @objc private func fontButtonAction(sender: UIButton) {
+            
+            let size = textView.font?.pointSize ?? 20
+            
+            if fontButton.titleLabel?.text == "A" {
+                textView.font = UIFont.systemFont(ofSize: size, weight: UIFont.Weight(rawValue: 0.8))
+                fontButton.setTitle("a", for: .normal)
+            } else {
+                textView.font = UIFont.systemFont(ofSize: size, weight: UIFont.Weight(rawValue: 0.2))
+                fontButton.setTitle("A", for: .normal)
+            }
+        }
+        
+        @objc private func sizeSliderAction(sender: UISlider) {
+            textView.font = .systemFont(ofSize: CGFloat(sizeSlider.value))
     }
 }

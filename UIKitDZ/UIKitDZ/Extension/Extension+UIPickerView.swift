@@ -23,8 +23,8 @@ extension PageViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
-        let size = text.font?.pointSize ?? 20
+        let size = textView.font?.pointSize ?? 20
         
-        text.font = UIFont(name: styles[row], size: size)
+        textView.font = UIFont(name: styles[row], size: size)
     }
 }
