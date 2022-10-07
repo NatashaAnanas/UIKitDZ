@@ -15,8 +15,8 @@ extension StopwatchViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cellText = "Круг"
-        let space = "                                                        "
+        let cellText = Constants.cellText
+        let space = Constants.space
         
         let cell = tableView.dequeueReusableCell(withIdentifier: indentifire, for: indexPath)
         cell.textLabel?.text =

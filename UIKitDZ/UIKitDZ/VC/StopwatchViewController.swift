@@ -9,10 +9,23 @@ import UIKit
 /// Экран секундомер
 final class StopwatchViewController: UIViewController {
     
+    enum Constants {
+        static let space = "                                                        "
+        static let cellText = "Круг"
+        static let start = "Старт"
+        static let indentifire = "MyCell"
+        static let stop = "Стоп"
+        static let startTime = "00:00:00"
+        static let newTime = "Сброс"
+        static let defaultTime = "00"
+    }
+    
+    // MARK: - Visual Components
+    
     let startButton: UIButton = {
         
         let button = UIButton()
-        button.setTitle("Старт", for: .normal)
+        button.setTitle(Constants.start, for: .normal)
         button.setTitleColor(UIColor.green, for: .normal)
         button.layer.cornerRadius = 55
         button.layer.borderWidth = 5
@@ -25,7 +38,7 @@ final class StopwatchViewController: UIViewController {
     let circleButton: UIButton = {
         
         let button = UIButton()
-        button.setTitle("Круг", for: .normal)
+        button.setTitle(Constants.cellText, for: .normal)
         button.setTitleColor(UIColor.opaqueSeparator, for: .normal)
         button.layer.cornerRadius = 55
         button.layer.borderWidth = 5
@@ -42,19 +55,23 @@ final class StopwatchViewController: UIViewController {
         return tableView
     }()
     
-    let indentifire = "MyCell"
-    
     var timeLabel: UILabel = {
         
         let label = UILabel()
-        label.text = "00:00.00"
+        label.text = Constants.startTime
         label.font = .systemFont(ofSize: 88)
         label.textColor = .white
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
+    // MARK: - Public Properties
+    
+    let indentifire = Constants.indentifire
+    
     var lapTime: [String] = []
+    
+    // MARK: - Private Properties
     
     private var timer = Timer()
     
@@ -74,7 +91,7 @@ final class StopwatchViewController: UIViewController {
     
     // MARK: - Create tableView
     
-    func createTableView() {
+    private func createTableView() {
         
         timeTableView.delegate = self
         timeTableView.dataSource = self
@@ -95,27 +112,27 @@ final class StopwatchViewController: UIViewController {
                                          userInfo: nil,
                                          repeats: true)
             
-            sender.setTitle("Стоп", for: .normal)
+            sender.setTitle(Constants.stop, for: .normal)
             sender.setTitleColor(UIColor.red, for: .normal)
             sender.layer.borderColor = UIColor.red.cgColor
             
             circleButton.isEnabled = true
             circleButton.setTitleColor(UIColor.white, for: .normal)
-            circleButton.setTitle("Круг", for: .normal)
+            circleButton.setTitle(Constants.cellText, for: .normal)
             
             valueStart = true
             
             return
         }
         
-        sender.setTitle("Старт", for: .normal)
+        sender.setTitle(Constants.start, for: .normal)
         sender.setTitleColor(UIColor.green, for: .normal)
         sender.layer.borderColor = UIColor.green.cgColor
         
         timer.invalidate()
         
         circleButton.isEnabled = true
-        circleButton.setTitle("Сброс", for: .normal)
+        circleButton.setTitle(Constants.newTime, for: .normal)
         
         valueStart = false
     }
@@ -142,15 +159,13 @@ final class StopwatchViewController: UIViewController {
         let deciSecond = String(format: "%.2f",
                                 counter).components(separatedBy: ".").last
         
-        timeLabel.text = "\(minuteString):\(secondString),\(String(describing: deciSecond ?? "00"))"
+        timeLabel.text = "\(minuteString):\(secondString),\(String(describing: deciSecond ?? Constants.defaultTime))"
     }
-    
-    // MARK: - Create circleButtonAction
     
     @objc private func circleButtonAction(sender: UIButton) {
         
         guard valueStart else {
-            timeLabel.text = "00:00.00"
+            timeLabel.text = Constants.startTime
             lapTime.removeAll()
             timeTableView.reloadData()
             timer.invalidate()
@@ -158,22 +173,22 @@ final class StopwatchViewController: UIViewController {
             return
         }
         
-        lapTime.append("\(timeLabel.text ?? "00")")
+        lapTime.append("\(timeLabel.text ?? Constants.defaultTime)")
         timeTableView.reloadData()
     }
     
-    // MARK: - Setup Views
-    
     private func setupViews() {
-        
-//        view.backgroundColor = .black
         
         let viewsArray = [startButton, circleButton, timeLabel, timeTableView]
         for ui in viewsArray {
             view.addSubview(ui)
         }
         
-        startButton.addTarget(self, action: #selector(startButtonAction(sender:)), for: .touchUpInside)
-        circleButton.addTarget(self, action: #selector(circleButtonAction(sender:)), for: .touchUpInside)
+        startButton.addTarget(self,
+                              action: #selector(startButtonAction(sender:)),
+                              for: .touchUpInside)
+        circleButton.addTarget(self,
+                               action: #selector(circleButtonAction(sender:)),
+                               for: .touchUpInside)
     }
 }

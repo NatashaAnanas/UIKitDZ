@@ -46,7 +46,6 @@
 			children = (
 				4179EEC528ED8776000D5121 /* Extension+UITableView.swift */,
 				4179EEC728ED8818000D5121 /* Extension+Constraints.swift */,
-				418D877528DB8387006178FD /* StopwatchViewController.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -70,6 +69,7 @@
 		418D877028DB8387006178FD /* UIKitDZ */ = {
 			isa = PBXGroup;
 			children = (
+				41B01B2228EFC3B900929E3A /* VC */,
 				4179EEC428ED8758000D5121 /* Extension */,
 				418D877128DB8387006178FD /* AppDelegate.swift */,
 				418D877328DB8387006178FD /* SceneDelegate.swift */,
@@ -79,6 +79,14 @@
 				418D877F28DB838B006178FD /* Info.plist */,
 			);
 			path = UIKitDZ;
+			sourceTree = "<group>";
+		};
+		41B01B2228EFC3B900929E3A /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				418D877528DB8387006178FD /* StopwatchViewController.swift */,
+			);
+			path = VC;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
