@@ -69,17 +69,14 @@ final class StopwatchViewController: UIViewController {
     
     let indentifire = Constants.indentifire
     
-    var lapTime: [String] = []
+    var lapTimes: [String] = []
     
     // MARK: - Private Properties
     
     private var timer = Timer()
-    
     private var isTimerRunning = false
-    
     private var counter = 0.00
-    
-    private var valueStart = false
+    private var isValueStart = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -92,7 +89,6 @@ final class StopwatchViewController: UIViewController {
     // MARK: - Create tableView
     
     private func createTableView() {
-        
         timeTableView.delegate = self
         timeTableView.dataSource = self
         
@@ -104,7 +100,7 @@ final class StopwatchViewController: UIViewController {
     
     @objc private func startButtonAction(sender: UIButton) {
         
-        guard valueStart else {
+        guard isValueStart else {
             
             timer = Timer.scheduledTimer(timeInterval: 0.01,
                                          target: self,
@@ -120,7 +116,7 @@ final class StopwatchViewController: UIViewController {
             circleButton.setTitleColor(UIColor.white, for: .normal)
             circleButton.setTitle(Constants.cellText, for: .normal)
             
-            valueStart = true
+            isValueStart = true
             
             return
         }
@@ -134,7 +130,7 @@ final class StopwatchViewController: UIViewController {
         circleButton.isEnabled = true
         circleButton.setTitle(Constants.newTime, for: .normal)
         
-        valueStart = false
+        isValueStart = false
     }
     
     @objc private func runTimerAction() {
@@ -164,23 +160,23 @@ final class StopwatchViewController: UIViewController {
     
     @objc private func circleButtonAction(sender: UIButton) {
         
-        guard valueStart else {
+        guard isValueStart else {
             timeLabel.text = Constants.startTime
-            lapTime.removeAll()
+            lapTimes.removeAll()
             timeTableView.reloadData()
             timer.invalidate()
             counter = 0.00
             return
         }
         
-        lapTime.append("\(timeLabel.text ?? Constants.defaultTime)")
+        lapTimes.append("\(timeLabel.text ?? Constants.defaultTime)")
         timeTableView.reloadData()
     }
     
     private func setupViews() {
         
-        let viewsArray = [startButton, circleButton, timeLabel, timeTableView]
-        for ui in viewsArray {
+        let views = [startButton, circleButton, timeLabel, timeTableView]
+        for ui in views {
             view.addSubview(ui)
         }
         

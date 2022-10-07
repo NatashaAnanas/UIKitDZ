@@ -1,13 +1,36 @@
 //
-//  Extension+Constraints.swift
+//  Extension+UITableView.swift
 //  UIKitDZ
 //
 //  Created by Анастасия Козлова on 05.10.2022.
 //
 
 import UIKit
-/// Установка констреинт
-extension StopwatchViewController {
+/// Расширение для UITableView и установка констреинт
+extension StopwatchViewController: UITableViewDataSource, UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return lapTimes.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cellText = Constants.cellText
+        let space = Constants.space
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: indentifire, for: indexPath)
+        cell.textLabel?.text =
+        "\(cellText)\(indexPath.row + 1)\(space)\(lapTimes[indexPath.row])"
+        
+        cell.backgroundColor = .systemMint
+        cell.textLabel?.textColor = .black
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        60.0
+    }
     
     func addConstraints() {
         
