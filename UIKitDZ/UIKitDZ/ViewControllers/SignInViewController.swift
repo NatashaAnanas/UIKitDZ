@@ -54,6 +54,8 @@ final class SignInViewController: UIViewController {
     private func createUI() {
         signInButton.layer.cornerRadius = 20
         signInButton.clipsToBounds = true
+        signInButton.layer.borderWidth = 5
+        signInButton.layer.borderColor = UIColor.red.cgColor
         
         NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillShowNotification,
                                                object: nil,
@@ -81,4 +83,8 @@ final class SignInViewController: UIViewController {
             passwordTextField.resignFirstResponder()
         }
     }
+}
+
+extension SignInViewController {
+    
 }

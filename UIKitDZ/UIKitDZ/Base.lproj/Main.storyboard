@@ -184,6 +184,14 @@
                     <view key="view" contentMode="scaleToFill" id="pN4-hh-xNx" customClass="Sta">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J6k-Mo-8rw">
+                                <rect key="frame" x="93" y="178" width="229" height="117"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="gray" title="Button"/>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="lHI-4H-QR6"/>
                         <color key="backgroundColor" systemColor="systemMintColor"/>
                     </view>
@@ -191,7 +199,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aKb-bi-oMn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2619" y="304"/>
+            <point key="canvasLocation" x="2618.840579710145" y="303.34821428571428"/>
         </scene>
         <!--Item 1-->
         <scene sceneID="Zqj-6j-vel">

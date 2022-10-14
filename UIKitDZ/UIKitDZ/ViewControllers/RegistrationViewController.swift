@@ -37,7 +37,7 @@ final class RegistrationViewController: UIViewController {
     
     // MARK: - Private @IBAction
     
-    @IBAction private func regButtonAction(_ sender: Any) {
+    @IBAction private func regButtonAction(_ sender: UIButton) {
         
         let email = newEmailTextField.text ?? Constants.emptyText
         let password = passwordTwoTextField.text ?? Constants.emptyText
@@ -45,11 +45,13 @@ final class RegistrationViewController: UIViewController {
         guard Info.info.usersMap[newEmailTextField.text ?? ""] != nil else {
 
             if newPasswordTextField.text == passwordTwoTextField.text {
-                
+                // добавить user
                 Info.info.usersMap[email] = password
                 infoLabel.text = Constants.successReg
                 
                 UserDefaults.standard.set(Info.info.usersMap, forKey: "dict")
+                print(UserDefaults.standard.object(forKey: "dict") ?? "")
+                print(Info.info.usersMap)
             } else {
                 infoLabel.text = Constants.differentPassword
             }
