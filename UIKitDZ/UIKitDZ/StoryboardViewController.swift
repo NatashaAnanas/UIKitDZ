@@ -6,9 +6,11 @@
 //
 
 import UIKit
-/// ViewController
-class ViewController: UIViewController {
 
+/// Светофор через Storyboard
+final class StoryboardViewController: UIViewController {
+
+    // MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
     }
