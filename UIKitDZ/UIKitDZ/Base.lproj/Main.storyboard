@@ -126,10 +126,10 @@
             </objects>
             <point key="canvasLocation" x="1752" y="-85"/>
         </scene>
-        <!--View Controller-->
+        <!--Cell View Controller-->
         <scene sceneID="OH4-Aa-cDn">
             <objects>
-                <viewController id="fFv-WH-9xp" customClass="VFLViewController" customModule="UIKitDZ" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="fFv-WH-9xp" customClass="CellViewController" customModule="UIKitDZ" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cxe-RT-dGc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
